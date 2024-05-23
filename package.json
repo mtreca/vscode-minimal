@@ -1,0 +1,49 @@
+{
+    "name": "maximet-theme",
+    "version": "0.0.1",
+    "displayName": "Maxime's VSCode Theme",
+    "description": "A Dark and minimal VSCode theme.",
+    "publisher": "maximetreca",
+    "license": "MIT",
+    "scripts": {
+        "build": "node ./scripts/build.js",
+        "lint": "node ./scripts/lint.js",
+        "package": "vsce package -o ./bin/dracula.vsix",
+        "vscode:prepublish": "npm run build",
+        "vsce-publish": "vsce publish"
+    },
+    "maintainers": [
+        "Maxime Treca"
+    ],
+    "engines": {
+        "vscode": "^1.13.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "dark",
+        "theme",
+        "color-theme"
+    ],
+    "icon": "icon.png",
+    "galleryBanner": {
+        "color": "#000000",
+        "theme": "dark"
+    },
+    "contributes": {
+        "themes": [
+            {
+                "label": "Maxime's Theme",
+                "uiTheme": "vs-dark",
+                "path": "./theme/maximet.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0",
+        "prettier": "^3.0.0",
+        "tinycolor2": "^1.6.0",
+        "vsce": "^2.15.0"
+    }
+}
