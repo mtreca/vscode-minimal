@@ -22,6 +22,7 @@ const get = url =>
 
 async function scrapeThemeAvailableKeys() {
     const data = await get(THEME_COLOR_REFERENCE_URL);
+    console.log(data);
 
     const matches = data.match(new RegExp('<code>.+?</code>', 'g'));
 
