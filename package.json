@@ -1,0 +1,47 @@
+{
+    "name": "minimal-theme",
+    "version": "0.1.9",
+    "displayName": "Minimal VSCode Theme",
+    "description": "A minimal VSCode theme.",
+    "publisher": "maximetreca",
+    "repository": {},
+    "license": "MIT",
+    "scripts": {
+        "build": "node ./scripts/build.js",
+        "lint": "node ./scripts/lint.js",
+        "package": "vsce package -o ./bin/minimal.vsix",
+        "vscode:prepublish": "npm run build",
+        "vsce-publish": "vsce publish"
+    },
+    "maintainers": [
+        "Maxime Treca"
+    ],
+    "engines": {
+        "vscode": "^1.13.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "theme"
+    ],
+    "icon": "icon.png",
+    "galleryBanner": {
+        "color": "#000000",
+        "theme": "dark"
+    },
+    "contributes": {
+        "themes": [
+            {
+                "label": "Minimal Theme - Black",
+                "uiTheme": "vs-dark",
+                "path": "./theme/minimal-black.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^4.1.0",
+        "prettier": "^3.0.0",
+        "@vscode/vsce": "^2.22.0"
+    }
+}
