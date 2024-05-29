@@ -8,7 +8,7 @@
     "scripts": {
         "build": "node ./scripts/build.js",
         "lint": "node ./scripts/lint.js",
-        "package": "vsce package -o ./bin/dracula.vsix",
+        "package": "vsce package -o ./bin/maximet.vsix",
         "vscode:prepublish": "npm run build",
         "vsce-publish": "vsce publish"
     },

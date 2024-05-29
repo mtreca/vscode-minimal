@@ -14,10 +14,10 @@ dracula:
     - &CYAN      '#8BE9FD'
     - &GREEN     '#50FA7B'
     - &ORANGE    '#FFB86C'
-    - &PINK      '#FF79C6'
     - &PURPLE    '#BD93F9'
     - &RED       '#FF5555'
-    - &YELLOW    '#F1FA8C'
+    - &ERROR     '#FF5555'
+    - &WARNING   '#F1FA8C'
   ansi:
     - &COLOR0    '#21222C'
     - &COLOR1    '#FF5555'
@@ -115,14 +115,14 @@ colors:
   input.foreground: *FG                                                         # Input box foreground
   input.placeholderForeground: *COMMENT                                         # Input box foreground color for placeholder text
   inputOption.activeBackground:                                                 # Background color of activated options in input fields.
-  inputOption.activeBorder: *PURPLE                                             # Border color of activated options in input fields
+  inputOption.activeBorder: *BGDarker                                           # Border color of activated options in input fields
   inputOption.activeForeground:                                                 # Foreground color of activated options in input fields.
   inputOption.hoverBackground:                                                  # Background color of activated options in input fields.
   inputValidation.errorBackground:                                              # Input validation background color for error severity
   inputValidation.errorBorder: *RED                                             # Input validation border color for error severity
   inputValidation.errorForeground:                                              # Input validation foreground color for error severity
   inputValidation.infoBackground:                                               # Input validation background color for information severity
-  inputValidation.infoBorder: *PINK                                             # Input validation border color for information severity
+  inputValidation.infoBorder: *WARNING                                          # Input validation border color for information severity
   inputValidation.infoForeground:                                               # Input validation foreground color for information severity
   inputValidation.warningBackground:                                            # Input validation background color for information warning
   inputValidation.warningBorder: *ORANGE                                        # Input validation border color for warning severity
@@ -139,7 +139,7 @@ colors:
   badge.background: *SELECTION                                                  # Badge background color
 
   # Progress Bar
-  progressBar.background: *PINK                                                 # Background color of the progress bar shown for long running operations
+  progressBar.background: *FG                                                 # Background color of the progress bar shown for long running operations
 
   # List & Trees
   list.activeSelectionBackground: *SELECTION                                    # List/Tree background color for the selected item when the list/tree is active
@@ -176,23 +176,23 @@ colors:
   tree.tableOddRowsBackground:                                                  # Background color for odd table rows.
 
   # Activity Bar
-  activityBar.activeBackground: !alpha [*PURPLE, 10]                            # Activity Bar indicator background color
+  activityBar.activeBackground: !alpha [*FG, 10]                                # Activity Bar indicator background color
   activityBar.activeFocusBorder:                                                # Activity bar focus border color for the active item.
-  activityBar.activeBorder: !alpha [*PINK, 80]                                  # Activity Bar indicator color
+  activityBar.activeBorder: !alpha [*FG, 80]                                    # Activity Bar indicator color
   activityBar.background: *BGLight                                              # Activity Bar background color
   activityBar.border:                                                           # Activity Bar border color with the Side Bar
   activityBar.dropBackground:                                                   # Drag and drop feedback color for the Activity Bar items
   activityBar.dropBorder:                                                       # Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
   activityBar.foreground: *FG                                                   # Activity bar foreground color (for example used for the icons)
   activityBar.inactiveForeground: *COMMENT                                      # Activity bar item foreground color when it is inactive
-  activityBarBadge.background: *PINK                                            # Activity notification badge background color
+  activityBarBadge.background: *RED                                             # Activity notification badge background color
   activityBarBadge.foreground: *FG                                              # Activity notification badge foreground color
   activityBarTop.foreground: *FG                                                # Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
-  activityBarTop.activeBorder: !alpha [*PINK, 80]                               # Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+  activityBarTop.activeBorder: !alpha [*FG, 80]                                 # Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
   activityBarTop.inactiveForeground: *COMMENT                                   # Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
   activityBarTop.dropBorder:                                                    # Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
   activityBarTop.background: *BGLight                                           # Background color of the activity bar when set to top / bottom.
-  activityBarTop.activeBackground: !alpha [*PURPLE, 10]                         # Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
+  activityBarTop.activeBackground: !alpha [*FG, 10]                             # Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
 
   # Profile
   profileBadge.background:                                                      # Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.
@@ -233,7 +233,7 @@ colors:
 
   # Editor Group & Tabs
   editorGroup.background:                                                       # Background color of an editor group. The background color shows up when dragging editor groups around
-  editorGroup.border: *PURPLE                                                   # Color to separate multiple editor groups from each other
+  editorGroup.border: *BGDarker                                                   # Color to separate multiple editor groups from each other
   editorGroup.dropBackground: *TAB_DROP_BG                                      # Background color when dragging editors around
   editorGroup.dropIntoPromptBackground:                                         # Background color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
   editorGroup.dropIntoPromptBorder:                                             # Border color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
@@ -250,7 +250,7 @@ colors:
 
   tab.activeBackground: *BG                                                     # Active Tab background color
   tab.activeBorder:                                                             # A border drawn to the bottom of the active tab
-  tab.activeBorderTop: !alpha [*PINK, 80]                                       # A border drawn to the top of the active tab
+  tab.activeBorderTop: !alpha [*FG, 80]                                       # A border drawn to the top of the active tab
   tab.activeForeground: *FG                                                     # Active Tab foreground color in an active group
   tab.activeModifiedBorder:                                                     # Border on the top of modified (dirty) active tabs in an active group.
   tab.border: *BGDarker                                                         # Border to separate Tabs from each other
@@ -324,15 +324,10 @@ colors:
   editorUnicodeHighlight.background:                                            # Background color used to highlight unicode characters.
 
   editorLink.activeForeground: *CYAN                                            # Color of active links
-  editor.rangeHighlightBackground: !alpha [ *PURPLE, 15 ]                       # Background color of highlighted ranges, like by Quick Open and Find features
+  editor.rangeHighlightBackground: !alpha [ *BGDarker, 15 ]                       # Background color of highlighted ranges, like by Quick Open and Find features
   editor.rangeHighlightBorder:                                                  # Background color of the border around highlighted ranges.
   editor.symbolHighlightBackground:                                             # Background color of highlighted symbol. The color must not be opaque so as not to hide underlying decorations.
   editor.symbolHighlightBorder:                                                 # Background color of the border around highlighted symbols.
-
-  editor.snippetTabstopHighlightBackground: *BG                                 # Highlight background color of a snippet tabstop
-  editor.snippetTabstopHighlightBorder: *COMMENT                                # Highlight border color of a snippet tabstop
-  editor.snippetFinalTabstopHighlightBackground: *BG                            # Highlight background color of the final tabstop of a snippet
-  editor.snippetFinalTabstopHighlightBorder: *GREEN                             # Highlight border color of the final tabstop of a snippet
 
   editor.linkedEditingBackground:                                               # Background color when the editor is in linked editing mode.
   editorIndentGuide.activeBackground: !alpha [ *WHITE, 45]                      # Color of the active indentation guide
@@ -370,7 +365,7 @@ colors:
   editorBracketMatch.border:                                                    # Color for matching brackets boxes
 
   editorBracketHighlight.foreground1: *FG                                       # Color of first pair of brackets
-  editorBracketHighlight.foreground2: *PINK                                     # Color of second pair of brackets
+  editorBracketHighlight.foreground2: *WARNING                                  # Color of second pair of brackets
   editorBracketHighlight.foreground3: *CYAN                                     # Color of third pair of brackets
   editorBracketHighlight.foreground4: *GREEN                                    # Color of fourth pair of brackets
   editorBracketHighlight.foreground5: *PURPLE                                   # Color of fifth pair of brackets
@@ -533,11 +528,11 @@ colors:
   peekViewEditor.background: *BG                                                # Background color of the peek view editor
   peekViewEditorGutter.background:                                              # Background color of the gutter in the peek view editor
 
-  peekViewEditor.matchHighlightBackground: !alpha [ *YELLOW, 80 ]               # Match highlight color in the peek view editor
+  peekViewEditor.matchHighlightBackground: !alpha [ *WARNING, 80 ]               # Match highlight color in the peek view editor
   peekViewResult.background: *BGDark                                            # Background color of the peek view result list
   peekViewResult.fileForeground: *FG                                            # Foreground color for file nodes in the peek view result list
   peekViewResult.lineForeground: *FG                                            # Foreground color for line nodes in the peek view result list
-  peekViewResult.matchHighlightBackground: !alpha [ *YELLOW, 80 ]               # Match highlight color in the peek view result list
+  peekViewResult.matchHighlightBackground: !alpha [ *WARNING, 80 ]               # Match highlight color in the peek view result list
   peekViewResult.selectionBackground: *SELECTION                                # Background color of the selected entry in the peek view result list
   peekViewResult.selectionForeground: *FG                                       # Foreground color of the selected entry in the peek view result list
   peekViewTitle.background: *BGDarker                                           # Background color of the peek view title area
@@ -576,9 +571,9 @@ colors:
 
   # Panel Colors
   panel.background: *BG                                                         # Panel background color
-  panel.border: *PURPLE                                                         # Panel border color on the top separating to the editor
+  panel.border: *BGDarker                                                       # Panel border color on the top separating to the editor
   panel.dropBorder:                                                             # Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
-  panelTitle.activeBorder: *PINK                                                # Border color for the active panel title
+  panelTitle.activeBorder: *BGDarker                                            # Border color for the active panel title
   panelTitle.activeForeground: *FG                                              # Title color for the active panel
   panelTitle.inactiveForeground: *COMMENT                                       # Title color for the inactive panel
   panelInput.border:                                                            # Input box border for inputs in the panel.
@@ -603,7 +598,7 @@ colors:
   statusBarItem.prominentBackground: *RED                                       # Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance
   statusBarItem.prominentHoverBackground: *ORANGE                               # Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance
   statusBarItem.remoteForeground: *BG                                           # Background color for the remote indicator on the status bar
-  statusBarItem.remoteBackground: *PURPLE                                       # Foreground color for the remote indicator on the status bar
+  statusBarItem.remoteBackground: *FG                                       # Foreground color for the remote indicator on the status bar
   statusBar.border:                                                             # Status Bar border color separating the Status Bar and editor.
   statusBar.debuggingBorder:                                                    # Status Bar border color separating the Status Bar and editor when a program is being debugged.
   statusBar.noFolderBorder:                                                     # Status Bar border color separating the Status Bar and editor when no folder is opened.
@@ -699,7 +694,7 @@ colors:
   extensionIcon.sponsorForeground:                                              # The icon color for extension sponsor.
 
   # Quick Picker
-  pickerGroup.border: *PURPLE                                                   # Quick picker (Quick Open) color for grouping borders
+  pickerGroup.border: *BGDarker                                                   # Quick picker (Quick Open) color for grouping borders
   pickerGroup.foreground: *CYAN                                                 # Quick picker (Quick Open) color for grouping labels
   quickInput.background:                                                        # Quick input background color. The quick input widget is the container for views like the color theme picker.
   quickInput.foreground:                                                        # Quick input foreground color. The quick input widget is the container for views like the color theme picker.
@@ -758,45 +753,107 @@ colors:
   terminalStickyScroll.background:                                                  # The background color of the sticky scroll overlay in the terminal.
   terminalStickyScrollHover.background:                                             # The background color of the sticky scroll overlay in the terminal when hovered.
 
-
-
-
   # Debug
   debugToolBar.background: *BGDark                                              # Debug toolbar background color
+  debugToolBar.border:                                                          # Debug toolbar border color.
+  editor.stackFrameHighlightBackground:                                         # Background color of the top stack frame highlight in the editor.
+  editor.focusedStackFrameHighlightBackground:                                  # Background color of the focused stack frame highlight in the editor.
+  editor.inlineValuesForeground:                                                # Color for the debug inline value text.
+  editor.inlineValuesBackground:                                                # Color for the debug inline value background.
+  debugView.exceptionLabelForeground:                                           # Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception.
+  debugView.exceptionLabelBackground:                                           # Background color for a label shown in the CALL STACK view when the debugger breaks on an exception.
+  debugView.stateLabelForeground:                                               # Foreground color for a label in the CALL STACK view showing the current session's or thread's state.
+  debugView.stateLabelBackground:                                               # Background color for a label in the CALL STACK view showing the current session's or thread's state.
+  debugView.valueChangedHighlight:                                              # Color used to highlight value changes in the debug views (such as in the Variables view).
+  debugTokenExpression.name:                                                    # Foreground color for the token names shown in debug views (such as in the Variables or Watch view).
+  debugTokenExpression.value:                                                   # Foreground color for the token values shown in debug views.
+  debugTokenExpression.string:                                                  # Foreground color for strings in debug views.
+  debugTokenExpression.boolean:                                                 # Foreground color for booleans in debug views.
+  debugTokenExpression.number:                                                  # Foreground color for numbers in debug views.
+  debugTokenExpression.error:                                                   # Foreground color for expression errors in debug views.
+
+# Testing colors
+
+  testing.coverCountBadgeBackground:                                              # Background for the badge indicating execution count
+  testing.coverCountBadgeForeground:                                              # Foreground for the badge indicating execution count
+  testing.coveredBackground:                                                      # Background color of text that was covered.
+  testing.coveredBorder:                                                          # Border color of text that was covered.
+  testing.coveredGutterBackground:                                                # Gutter color of regions where code was covered.
+  testing.iconErrored:                                                            # Color for the 'Errored' icon in the test explorer.
+  testing.iconErrored.retired:                                                    # Retired color for the 'Errored' icon in the test explorer.
+  testing.iconFailed:                                                             # Color for the 'failed' icon in the test explorer.
+  testing.iconFailed.retired:                                                     # Retired color for the 'failed' icon in the test explorer.
+  testing.iconPassed:                                                             # Color for the 'passed' icon in the test explorer.
+  testing.iconPassed.retired:                                                     # Retired color for the 'passed' icon in the test explorer.
+  testing.iconQueued:                                                             # Color for the 'Queued' icon in the test explorer.
+  testing.iconQueued.retired:                                                     # Retired color for the 'Queued' icon in the test explorer.
+  testing.iconSkipped:                                                            # Color for the 'Skipped' icon in the test explorer.
+  testing.iconSkipped.retired:                                                    # Retired color for the 'Skipped' icon in the test explorer.
+  testing.iconUnset:                                                              # Color for the 'Unset' icon in the test explorer.
+  testing.iconUnset.retired:                                                      # Retired color for the 'Unset' icon in the test explorer.
+  testing.message.error.decorationForeground:                                     # Text color of test error messages shown inline in the editor.
+  testing.message.error.lineBackground:                                           # Margin color beside error messages shown inline in the editor.
+  testing.message.info.decorationForeground:                                      # Text color of test info messages shown inline in the editor.
+  testing.message.info.lineBackground:                                            # Margin color beside info messages shown inline in the editor.
+  testing.messagePeekBorder:                                                      # Color of the peek view borders and arrow when peeking a logged message.
+  testing.messagePeekHeaderBackground:                                            # Color of the peek view borders and arrow when peeking a logged message.
+  testing.peekBorder:                                                             # Color of the peek view borders and arrow.
+  testing.peekHeaderBackground:                                                   # Color of the peek view borders and arrow.
+  testing.runAction:                                                              # Color for 'run' icons in the editor.
+  testing.uncoveredBackground:                                                    # Background color of text that was not covered.
+  testing.uncoveredBorder:                                                        # Border color of text that was not covered.
+  testing.uncoveredBranchBackground:                                              # Background of the widget shown for an uncovered branch.
+  testing.uncoveredGutterBackground:                                              # Gutter color of regions where code not covered.
+
 
   # Welcome Page
+  walkThrough.embeddedEditorBackground: *BGDark                                 # Background color for the embedded editors on the Interactive Playground
+  walkthrough.stepTitle.foreground:                                             # Foreground color of the heading of each walkthrough step.
+  welcomePage.background:                                                       # Background color for the Welcome page.
   welcomePage.buttonBackground:                                                 # Background color for the buttons on the Welcome page
   welcomePage.buttonHoverBackground:                                            # Hover background color for the buttons on the Welcome page
-  walkThrough.embeddedEditorBackground: *BGDark                                 # Background color for the embedded editors on the Interactive Playground
-
+  welcomePage.progress.background:                                              # Foreground color for the Welcome page progress bars.
+  welcomePage.progress.foreground:                                              # Background color for the Welcome page progress bars.
+  welcomePage.tileBackground:                                                   # Background color for the tiles on the Welcome page.
+  welcomePage.tileBorder:                                                       # Border color for the tiles on the Welcome page.
+  welcomePage.tileHoverBackground:                                              # Hover background color for the tiles on the Welcome page.
 
 
   # Explorer Colors
-  gitDecoration.modifiedResourceForeground: *CYAN
-  gitDecoration.deletedResourceForeground: *RED
-  gitDecoration.untrackedResourceForeground: *GREEN
-  gitDecoration.ignoredResourceForeground: *COMMENT
-  gitDecoration.conflictingResourceForeground: *ORANGE
-
-
-
+  gitDecoration.modifiedResourceForeground: *CYAN                               # Color for modified Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.deletedResourceForeground: *RED                                 # Color for deleted Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.untrackedResourceForeground: *GREEN                             # Color for untracked Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.ignoredResourceForeground: *COMMENT                             # Color for ignored Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.conflictingResourceForeground: *ORANGE                          # Color for conflicting Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.addedResourceForeground:                                        # Color for added Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.renamedResourceForeground:                                      # Color for renamed or copied Git resources. Used for file labels and the SCM viewlet.
+  gitDecoration.stageModifiedResourceForeground:                                # Color for staged modifications git decorations. Used for file labels and the SCM viewlet.
+  gitDecoration.stageDeletedResourceForeground:                                 # Color for staged deletions git decorations. Used for file labels and the SCM viewlet.
+  gitDecoration.submoduleResourceForeground:                                    # Color for submodule resources.
 
   # Setting Editor
-  settings.headerForeground:           *FG                                      # The foreground color for a section header or active title
-  settings.modifiedItemIndicator:      *ORANGE                                  # The color of the line that indicates a modified setting
+  settings.headerForeground: *FG                                                # The foreground color for a section header or active title
+  settings.modifiedItemIndicator: *ORANGE                                       # The color of the line that indicates a modified setting
   settings.inactiveSelectedItemBorder:                                          # The color of the selected setting row border, when the settings list does not have focus
-  settings.dropdownBackground:         *BGDark                                  # Dropdown background
-  settings.dropdownForeground:         *FG                                      # Dropdown foreground
-  settings.dropdownBorder:             *BGDarker                                # Dropdown border
-  settings.checkboxBackground:         *BGDark                                  # Checkbox background
-  settings.checkboxForeground:         *FG                                      # Checkbox foreground
-  settings.checkboxBorder:             *BGDarker                                # Checkbox border
-  settings.textInputBackground:        *BGDark                                  # Text input box background
-  settings.textInputForeground:        *FG                                      # Text input box foreground
-  settings.textInputBorder:            *BGDarker                                # Text input box border
-  settings.numberInputBackground:      *BGDark                                  # Number input box background
-  settings.numberInputForeground:      *FG                                      # Number input box foreground
-  settings.numberInputBorder:          *BGDarker                                # Number input box border
+  settings.dropdownBackground: *BGDark                                          # Dropdown background
+  settings.dropdownForeground: *FG                                              # Dropdown foreground
+  settings.dropdownBorder: *BGDarker                                            # Dropdown border
+  settings.checkboxBackground: *BGDark                                          # Checkbox background
+  settings.checkboxForeground: *FG                                              # Checkbox foreground
+  settings.checkboxBorder: *BGDarker                                            # Checkbox border
+  settings.textInputBackground: *BGDark                                         # Text input box background
+  settings.textInputForeground: *FG                                             # Text input box foreground
+  settings.textInputBorder: *BGDarker                                           # Text input box border
+  settings.numberInputBackground: *BGDark                                       # Number input box background
+  settings.numberInputForeground: *FG                                           # Number input box foreground
+  settings.numberInputBorder: *BGDarker                                         # Number input box border
+  settings.dropdownListBorder:                                                  # Dropdown list border.
+  settings.rowHoverBackground:                                                  # The background color of a settings row when hovered.
+  settings.focusedRowBackground:                                                # Background color of a focused setting row.
+  settings.focusedRowBorder:                                                    # The color of the row top and bottom border when the row is focused.
+  settings.headerBorder:                                                        # The color of the header container border.
+  settings.sashBorder:                                                          # The color of the Settings editor splitview sash border.
+  settings.settingsHeaderHoverForeground:                                       # The foreground color for a section header or hovered title.
 
   # Breadcrumbs
   breadcrumb.foreground: *COMMENT                                               # Color of breadcrumb items
@@ -805,6 +862,125 @@ colors:
   breadcrumb.activeSelectionForeground: *FG                                     # Color of selected breadcrumb items
   breadcrumbPicker.background: *BGDarker                                        # Background color of breadcrumb item picker
 
+  # Snippets colors
+
+  editor.snippetTabstopHighlightBackground: *BG                                 # Highlight background color of a snippet tabstop
+  editor.snippetTabstopHighlightBorder: *COMMENT                                # Highlight border color of a snippet tabstop
+  editor.snippetFinalTabstopHighlightBackground: *BG                            # Highlight background color of the final tabstop of a snippet
+  editor.snippetFinalTabstopHighlightBorder: *GREEN                             # Highlight border color of the final tabstop of a snippet
+
+  # Symbol Icons colors
+
+  symbolIcon.arrayForeground:                                                   # The foreground color for array symbols.
+  symbolIcon.booleanForeground:                                                 # The foreground color for boolean symbols.
+  symbolIcon.classForeground:                                                   # The foreground color for class symbols.
+  symbolIcon.colorForeground:                                                   # The foreground color for color symbols.
+  symbolIcon.constantForeground:                                                # The foreground color for constant symbols.
+  symbolIcon.constructorForeground:                                             # The foreground color for constructor symbols.
+  symbolIcon.enumeratorForeground:                                              # The foreground color for enumerator symbols.
+  symbolIcon.enumeratorMemberForeground:                                        # The foreground color for enumerator member symbols.
+  symbolIcon.eventForeground:                                                   # The foreground color for event symbols.
+  symbolIcon.fieldForeground:                                                   # The foreground color for field symbols.
+  symbolIcon.fileForeground:                                                    # The foreground color for file symbols.
+  symbolIcon.folderForeground:                                                  # The foreground color for folder symbols.
+  symbolIcon.functionForeground:                                                # The foreground color for function symbols.
+  symbolIcon.interfaceForeground:                                               # The foreground color for interface symbols.
+  symbolIcon.keyForeground:                                                     # The foreground color for key symbols.
+  symbolIcon.keywordForeground:                                                 # The foreground color for keyword symbols.
+  symbolIcon.methodForeground:                                                  # The foreground color for method symbols.
+  symbolIcon.moduleForeground:                                                  # The foreground color for module symbols.
+  symbolIcon.namespaceForeground:                                               # The foreground color for namespace symbols.
+  symbolIcon.nullForeground:                                                    # The foreground color for null symbols.
+  symbolIcon.numberForeground:                                                  # The foreground color for number symbols.
+  symbolIcon.objectForeground:                                                  # The foreground color for object symbols.
+  symbolIcon.operatorForeground:                                                # The foreground color for operator symbols.
+  symbolIcon.packageForeground:                                                 # The foreground color for package symbols.
+  symbolIcon.propertyForeground:                                                # The foreground color for property symbols.
+  symbolIcon.referenceForeground:                                               # The foreground color for reference symbols.
+  symbolIcon.snippetForeground:                                                 # The foreground color for snippet symbols.
+  symbolIcon.stringForeground:                                                  # The foreground color for string symbols.
+  symbolIcon.structForeground:                                                  # The foreground color for struct symbols.
+  symbolIcon.textForeground:                                                    # The foreground color for text symbols.
+  symbolIcon.typeParameterForeground:                                           # The foreground color for type parameter symbols.
+  symbolIcon.unitForeground:                                                    # The foreground color for unit symbols.
+  symbolIcon.variableForeground:                                                # The foreground color for variable symbols.
+
+  # Debug Icons colors
+  debugIcon.breakpointForeground:                                               # Icon color for breakpoints.
+  debugIcon.breakpointDisabledForeground:                                       # Icon color for disabled breakpoints.
+  debugIcon.breakpointUnverifiedForeground:                                     # Icon color for unverified breakpoints.
+  debugIcon.breakpointCurrentStackframeForeground:                              # Icon color for the current breakpoint stack frame.
+  debugIcon.breakpointStackframeForeground:                                     # Icon color for all breakpoint stack frames.
+  debugIcon.startForeground:                                                    # Debug toolbar icon for start debugging.
+  debugIcon.pauseForeground:                                                    # Debug toolbar icon for pause.
+  debugIcon.stopForeground:                                                     # Debug toolbar icon for stop.
+  debugIcon.disconnectForeground:                                               # Debug toolbar icon for disconnect.
+  debugIcon.restartForeground:                                                  # Debug toolbar icon for restart.
+  debugIcon.stepOverForeground:                                                 # Debug toolbar icon for step over.
+  debugIcon.stepIntoForeground:                                                 # Debug toolbar icon for step into.
+  debugIcon.stepOutForeground:                                                  # Debug toolbar icon for step over.
+  debugIcon.continueForeground:                                                 # Debug toolbar icon for continue.
+  debugIcon.stepBackForeground:                                                 # Debug toolbar icon for step back.
+  debugConsole.infoForeground:                                                  # Foreground color for info messages in debug REPL console.
+  debugConsole.warningForeground:                                               # Foreground color for warning messages in debug REPL console.
+  debugConsole.errorForeground:                                                 # Foreground color for error messages in debug REPL console.
+  debugConsole.sourceForeground:                                                # Foreground color for source filenames in debug REPL console.
+  debugConsoleInputIcon.foreground:                                             # Foreground color for debug console input marker icon.
+
+  # Notebook colors
+  notebook.editorBackground:                                                    # Notebook background color.
+  notebook.cellBorderColor:                                                     # The border color for notebook cells.
+  notebook.cellHoverBackground:                                                 # The background color of a cell when the cell is hovered.
+  notebook.cellInsertionIndicator:                                              # The color of the notebook cell insertion indicator.
+  notebook.cellStatusBarItemHoverBackground:                                    # The background color of notebook cell status bar items.
+  notebook.cellToolbarSeparator:                                                # The color of the separator in the cell bottom toolbar
+  notebook.cellEditorBackground:                                                # The color of the notebook cell editor background
+  notebook.focusedCellBackground:                                               # The background color of a cell when the cell is focused.
+  notebook.focusedCellBorder:                                                   # The color of the cell focus indicator borders when the cell is focused.
+  notebook.focusedEditorBorder:                                                 # The color of the notebook cell editor border.
+  notebook.inactiveFocusedCellBorder:                                           # The color of the cell top and bottom border when a cell is focused while the primary focus is outside of the editor.
+  notebook.inactiveSelectedCellBorder:                                          # The color of the cell borders when multiple cells are selected.
+  notebook.outputContainerBackgroundColor:                                      # The Color of the notebook output container background.
+  notebook.outputContainerBorderColor:                                          # The border color of the notebook output container.
+  notebook.selectedCellBackground:                                              # The background color of a cell when the cell is selected.
+  notebook.selectedCellBorder:                                                  # The color of the cell top and bottom border when the cell is selected but not focused.
+  notebook.symbolHighlightBackground:                                           # Background color of highlighted cell
+  notebookScrollbarSlider.activeBackground:                                     # Notebook scrollbar slider background color when clicked on.
+  notebookScrollbarSlider.background:                                           # Notebook scrollbar slider background color.
+  notebookScrollbarSlider.hoverBackground:                                      # Notebook scrollbar slider background color when hovering.
+  notebookStatusErrorIcon.foreground:                                           # The error icon color of notebook cells in the cell status bar.
+  notebookStatusRunningIcon.foreground:                                         # The running icon color of notebook cells in the cell status bar.
+  notebookStatusSuccessIcon.foreground:                                         # The success icon color of notebook cells in the cell status bar.
+  notebookEditorOverviewRuler.runningCellForeground:                            # The color of the running cell decoration in the notebook editor overview ruler.
+
+  # Chart colors
+  charts.foreground:                                                            # Contrast color for text in charts.
+  charts.lines:                                                                 # Color for lines in charts.
+  charts.red:                                                                   # Color for red elements in charts.
+  charts.blue:                                                                  # Color for blue elements in charts.
+  charts.yellow:                                                                # Color for yellow elements in charts.
+  charts.orange:                                                                # Color for orange elements in charts.
+  charts.green:                                                                 # Color for green elements in charts.
+  charts.purple:                                                                # Color for purple elements in charts.
+
+  # Ports Colors
+  ports.iconRunningProcessForeground:                                           # The color of the icon for a port that has an associated running process.
+
+  # Comments View colors
+  commentsView.resolvedIcon:                                                    # Icon color for resolved comments.
+  commentsView.unresolvedIcon:                                                  # Icon color for unresolved comments.
+
+  # Action Bar colors
+  actionBar.toggledBackground:                                                  # Background color for toggled action items in action bar.
+
+  # Simple Find Widget
+  simpleFindWidget.sashBorder:                                                  # Border color of the sash border.
+
+  # SCM
+  scm.historyItemAdditionsForeground:                                           # History item additions foreground color.
+  scm.historyItemDeletionsForeground:                                           # History item deletions foreground color.
+  scm.historyItemStatisticsBorder:                                              # History item statistics border color.
+  scm.historyItemSelectedStatisticsBorder:                                      # History item selected statistics border color.
 
 
 # Syntaxes
@@ -825,7 +1001,7 @@ tokenColors:
   - scope:
     - header
     settings:
-      foreground: *PURPLE
+      foreground: *FG
 
   # Diffs
   # ======
@@ -859,7 +1035,7 @@ tokenColors:
   - scope:
     - entity.name.filename
     settings:
-      foreground: *YELLOW
+      foreground: *FG
   - scope:
     - markup.error
     settings:
@@ -886,13 +1062,13 @@ tokenColors:
     - markup.heading
     settings:
       fontStyle: bold
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Markup italic
     scope:
     - markup.italic
     settings:
-      foreground: *YELLOW
+      foreground: *FG
       fontStyle: italic
 
   - name: Bullets, lists (prose)
@@ -924,14 +1100,14 @@ tokenColors:
     - string.other.link.description
     - string.other.link.title
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: Blockquotes (prose)
     scope:
     - entity.name.directive.restructuredtext
     - markup.quote
     settings:
-      foreground: *YELLOW
+      foreground: *FG
       fontStyle: italic
 
   - name: Horizontal rule (prose)
@@ -952,14 +1128,14 @@ tokenColors:
     scope:
     - punctuation.definition.constant.restructuredtext
     settings:
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Braces in markdown headings
     scope:
     - markup.heading.markdown punctuation.definition.string.begin
     - markup.heading.markdown punctuation.definition.string.end
     settings:
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Braces in markdown paragraphs
     scope:
@@ -973,7 +1149,7 @@ tokenColors:
     - markup.quote.markdown meta.paragraph.markdown punctuation.definition.string.begin
     - markup.quote.markdown meta.paragraph.markdown punctuation.definition.string.end
     settings:
-      foreground: *YELLOW
+      foreground: *FG
 
 # =============================================================================
 # Classes
@@ -996,7 +1172,7 @@ tokenColors:
     - variable.other.readwrite.instance.ruby                # ruby's "@" instance symbol
     - variable.parameter.function.language.special          # Special words as parameters
     settings:
-      foreground: *PURPLE
+      foreground: *FG
       fontStyle: italic
 
   - name: Inherited classes
@@ -1025,7 +1201,7 @@ tokenColors:
     - comment.block.documentation keyword
     - comment.block.documentation storage.type.class
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: JSDoc-style types
     scope:
@@ -1056,7 +1232,7 @@ tokenColors:
     - constant
     - variable.other.constant
     settings:
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Constant escape sequences
     scope:
@@ -1064,7 +1240,7 @@ tokenColors:
     - constant.character.string.escape
     - constant.regexp
     settings:
-      foreground: *PINK
+      foreground: *FG
 
 # =============================================================================
 # Entities
@@ -1074,13 +1250,13 @@ tokenColors:
     scope:
     - entity.name.tag
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: CSS attribute parent selectors ('&')
     scope:
     - entity.other.attribute-name.parent-selector
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: HTML/CSS attribute names
     scope:
@@ -1141,7 +1317,7 @@ tokenColors:
     - keyword
     - punctuation.definition.keyword
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: Keyword "new"
     scope:
@@ -1154,7 +1330,7 @@ tokenColors:
     scope:
     - meta.selector
     settings:
-      foreground: *PINK
+      foreground: *FG
 
 # =============================================================================
 # Language Built-ins
@@ -1174,7 +1350,7 @@ tokenColors:
     - variable.other.predefined
     settings:
       fontStyle: regular
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Built-in functions / properties
     scope:
@@ -1214,7 +1390,7 @@ tokenColors:
     - support.other.chomping-indicator.yaml
     - punctuation.separator.annotation
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: Brackets, braces, parens, etc.
     scope:
@@ -1252,7 +1428,7 @@ tokenColors:
     - punctuation.section.embedded.end source.ruby # Issue with ruby's tmLanguage
     - punctuation.definition.variable.makefile
     settings:
-      foreground: *PINK
+      foreground: *FG
 
 # =============================================================================
 # Serializable / Config Langages
@@ -1293,7 +1469,7 @@ tokenColors:
     - source.groovy storage.type.def
     settings:
       fontStyle: regular
-      foreground: *PINK
+      foreground: *FG
 
   - name: Types
     scope:
@@ -1332,7 +1508,7 @@ tokenColors:
     scope:
     - storage.modifier
     settings:
-      foreground: *PINK
+      foreground: *FG
 
 # =============================================================================
 # RegExp
@@ -1344,14 +1520,14 @@ tokenColors:
     - constant.other.character-class.set.regexp
     - constant.character.escape.backslash.regexp
     settings:
-      foreground: *YELLOW
+      foreground: *FG
 
   - name: Non-capture operators
     scope:
     # NOTE: The scope name is a misnomer. It is actually non-capture operators
     - punctuation.definition.group.capture.regexp
     settings:
-      foreground: *PINK
+      foreground: *FG
 
   - name: RegExp start and end characters
     scope:
@@ -1394,7 +1570,7 @@ tokenColors:
     scope:
     - string
     settings:
-      foreground: *YELLOW
+      foreground: *FG
 
   - name: String quotes (temporary vscode fix)
     scope:
@@ -1464,7 +1640,7 @@ tokenColors:
     scope:
     - meta.selectionset.graphql variable
     settings:
-      foreground: *YELLOW
+      foreground: *FG
 
   - name: GraphQL function arguments
     scope:
@@ -1505,26 +1681,26 @@ tokenColors:
     scope:
     - source.shell variable.other
     settings:
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Powershell constants mistakenly scoped to `support`, rather than `constant` (edge)
     scope:
     - support.constant
     settings:
       fontStyle: normal
-      foreground: *PURPLE
+      foreground: *FG
 
   - name: Makefile prerequisite names
     scope:
     - meta.scope.prerequisites.makefile
     settings:
-      foreground: *YELLOW
+      foreground: *FG
 
   - name: SCSS attibute selector strings
     scope:
       - meta.attribute-selector.scss
     settings:
-      foreground: *YELLOW
+      foreground: *FG
 
   - name: SCSS attribute selector brackets
     scope:
@@ -1550,5 +1726,5 @@ tokenColors:
     scope:
       - log.warning
     settings:
-      foreground: *YELLOW
+      foreground: *WARNING
       fontStyle: bold

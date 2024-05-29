@@ -24,9 +24,4 @@ npm run build
 
 ### Activating theme
 
-Run Visual Studio Code. The Dracula Syntax Theme will be available from `File -> Preferences -> Color Theme` dropdown menu.
-
-
-## License
-
-[MIT License](./LICENSE)
+Run Visual Studio Code. The theme will be available from `File -> Preferences -> Color Theme` dropdown menu.
