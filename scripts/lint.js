@@ -22,7 +22,7 @@ const get = url =>
 
 async function scrapeThemeAvailableKeys() {
     const data = await get(THEME_COLOR_REFERENCE_URL);
-    console.log(data);
+    // console.log(data);
 
     const matches = data.match(new RegExp('<code>.+?</code>', 'g'));
 
@@ -46,6 +46,7 @@ async function scrapeThemeAvailableKeys() {
     const availableKeys = await scrapeThemeAvailableKeys();
     const { base } = await generate();
 
+    // TODO Add an option to disable warnings on keys with no values
     for (const key of Object.keys(base.colors)) {
         if (!availableKeys.includes(key)) {
             console.warn(`Unsupported key "${key}", probably deprecated?`);

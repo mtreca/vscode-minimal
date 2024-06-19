@@ -1,8 +1,8 @@
 $schema: vscode://schemas/color-theme
-name: Dracula
-semanticClass: theme.dracula
+name: Minimal
+semanticClass: theme.minimal
 semanticHighlighting: true
-dracula:
+palette:
   base:
     - &BG        '#000000'
     - &FG        '#FFFFFF'
@@ -269,7 +269,7 @@ colors:
   editor.inactiveSelectionBackground:                                           # Color of the selection in an inactive editor
   editor.selectionBackground: *BGMid                                            # Color of the editor selection
   editor.selectionForeground:                                                   # Color of the selected text for high contrast.
-  editor.selectionHighlightBackground: *BGMid                                   # Color for regions with the same content as the selection
+  editor.selectionHighlightBackground: !alpha [ *BGDark, 80 ]                   # Color for regions with the same content as the selection
   editor.selectionHighlightBorder:                                              # Border color for regions with the same content as the selection.
 
   editor.wordHighlightBackground: !alpha [ *FG, 20 ]                            # Background color of a symbol during read-access, for example when reading a variable
@@ -305,19 +305,19 @@ colors:
 
   editor.linkedEditingBackground:                                               # Background color when the editor is in linked editing mode.
   editorIndentGuide.activeBackground: !alpha [ *FG, 45]                         # Color of the active indentation guide
-  editorIndentGuide.activeBackground1:                                          # Color of the active editor indentation guides (1).
-  editorIndentGuide.activeBackground2:                                          # Color of the active editor indentation guides (2).
-  editorIndentGuide.activeBackground3:                                          # Color of the active editor indentation guides (3).
-  editorIndentGuide.activeBackground4:                                          # Color of the active editor indentation guides (4).
-  editorIndentGuide.activeBackground5:                                          # Color of the active editor indentation guides (5).
-  editorIndentGuide.activeBackground6:                                          # Color of the active editor indentation guides (6).
-  editorIndentGuide.background:  !alpha [ *FG, 45]                              # Color of the editor indentation guides
-  editorIndentGuide.background1:                                                # Color of the editor indentation guides (1).
-  editorIndentGuide.background2:                                                # Color of the editor indentation guides (2).
-  editorIndentGuide.background3:                                                # Color of the editor indentation guides (3).
-  editorIndentGuide.background4:                                                # Color of the editor indentation guides (4).
-  editorIndentGuide.background5:                                                # Color of the editor indentation guides (5).
-  editorIndentGuide.background6:                                                # Color of the editor indentation guides (6).
+  editorIndentGuide.activeBackground1: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (1).
+  editorIndentGuide.activeBackground2: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (2).
+  editorIndentGuide.activeBackground3: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (3).
+  editorIndentGuide.activeBackground4: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (4).
+  editorIndentGuide.activeBackground5: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (5).
+  editorIndentGuide.activeBackground6: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (6).
+  editorIndentGuide.background: !alpha [ *FG, 45]                               # Color of the editor indentation guides
+  editorIndentGuide.background1: !alpha [ *FG, 45]                              # Color of the editor indentation guides (1).
+  editorIndentGuide.background2: !alpha [ *FG, 45]                              # Color of the editor indentation guides (2).
+  editorIndentGuide.background3: !alpha [ *FG, 45]                              # Color of the editor indentation guides (3).
+  editorIndentGuide.background4: !alpha [ *FG, 45]                              # Color of the editor indentation guides (4).
+  editorIndentGuide.background5: !alpha [ *FG, 45]                              # Color of the editor indentation guides (5).
+  editorIndentGuide.background6: !alpha [ *FG, 45]                              # Color of the editor indentation guides (6).
   editorInlayHint.background:                                                   # Background color of inline hints.
   editorInlayHint.foreground:                                                   # Foreground color of inline hints.
   editorInlayHint.parameterBackground:                                          # Background color of inline hints for parameters
@@ -362,9 +362,9 @@ colors:
   editorOverviewRuler.border: *BGDark                                           # Color of the overview ruler border.
   editorOverviewRuler.findMatchForeground:                                      # Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.
   editorOverviewRuler.rangeHighlightForeground:                                 # Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
-  editorOverviewRuler.selectionHighlightForeground: *INFO                       # Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.
-  editorOverviewRuler.wordHighlightForeground: *INFO                            # Overview ruler marker color for symbol highlights. The color must not be opaque so as not to hide underlying decorations.
-  editorOverviewRuler.wordHighlightStrongForeground: *PASS                      # Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations.
+  editorOverviewRuler.selectionHighlightForeground: !alpha [ *INFO, 80 ]        # Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.
+  editorOverviewRuler.wordHighlightForeground: !alpha [ *INFO, 80 ]             # Overview ruler marker color for symbol highlights. The color must not be opaque so as not to hide underlying decorations.
+  editorOverviewRuler.wordHighlightStrongForeground: !alpha [ *PASS, 80 ]       # Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations.
   editorOverviewRuler.wordHighlightTextForeground:                              # Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.
   editorOverviewRuler.modifiedForeground: !alpha [ *INFO, 80 ]                  # Overview ruler marker color for modified content.
   editorOverviewRuler.addedForeground: !alpha [ *PASS, 80 ]                     # Overview ruler marker color for added content.
@@ -444,7 +444,7 @@ colors:
   inlineChat.background:                                                        # Background color of the interactive editor widget.
   inlineChat.border:                                                            # Border color of the interactive editor widget.
   inlineChat.shadow:                                                            # Shadow color of the interactive editor widget.
-  inlineChat.regionHighlight: *BGDark                                           # Background highlighting of the current interactive region. Must be transparent.
+  inlineChat.regionHighlight: !alpha [*BGDark, 50]                              # Background highlighting of the current interactive region. Must be transparent.
   inlineChatInput.border:                                                       # Border color of the interactive editor input.
   inlineChatInput.focusBorder:                                                  # Border color of the interactive editor input when focused.
   inlineChatInput.placeholderForeground:                                        # Foreground color of the interactive editor input placeholder.
@@ -969,7 +969,7 @@ tokenColors:
     - markup.inserted
     settings:
       foreground: *PASS
-  - sc ope:
+  - scope:
     - markup.deleted
     settings:
       foreground: *ERROR
@@ -1113,7 +1113,6 @@ tokenColors:
     - entity.name.class
     settings:
       foreground: *FG
-      fontStyle: normal
 
   - name: this, super, self, etc.
     scope:
@@ -1289,7 +1288,6 @@ tokenColors:
     - support.variable
     - variable.other.predefined
     settings:
-      fontStyle: regular
       foreground: *FG
 
   - name: Built-in functions / properties
@@ -1297,7 +1295,7 @@ tokenColors:
     - support.function
     - support.type.property-name
     settings:
-      fontStyle: regular
+      foreground: *FG
 
 # Punctuation
 
@@ -1402,7 +1400,6 @@ tokenColors:
     - meta.interface-or-protocol storage.type.objc
     - source.groovy storage.type.def
     settings:
-      fontStyle: regular
       foreground: *FG
 
   - name: Types
@@ -1542,7 +1539,6 @@ tokenColors:
     - meta.export variable.other.readwrite.alias                             # Module import aliasing (alias name)
     - meta.variable.assignment.destructured.object.coffee variable variable  # Object destructuring variable (coffeescript)
     settings:
-      fontStyle: normal
       foreground: *FG
 
 # Language Extensions / Edge Cases
@@ -1598,7 +1594,6 @@ tokenColors:
     scope:
     - support.constant
     settings:
-      fontStyle: normal
       foreground: *FG
 
   - name: Makefile prerequisite names

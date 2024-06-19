@@ -1,14 +1,15 @@
 {
-    "name": "maximet-theme",
+    "name": "minimal-theme",
     "version": "0.1.0",
-    "displayName": "Maxime's VSCode Theme",
-    "description": "A Dark and minimal VSCode theme.",
+    "displayName": "Minimal VSCode Theme",
+    "description": "A minimal VSCode theme.",
     "publisher": "maximetreca",
+    "repository": {},
     "license": "MIT",
     "scripts": {
         "build": "node ./scripts/build.js",
         "lint": "node ./scripts/lint.js",
-        "package": "vsce package -o ./bin/maximet.vsix",
+        "package": "vsce package -o ./bin/minimal.vsix",
         "vscode:prepublish": "npm run build",
         "vsce-publish": "vsce publish"
     },
@@ -22,9 +23,7 @@
         "Themes"
     ],
     "keywords": [
-        "dark",
-        "theme",
-        "color-theme"
+        "theme"
     ],
     "icon": "icon.png",
     "galleryBanner": {
@@ -34,9 +33,9 @@
     "contributes": {
         "themes": [
             {
-                "label": "Maxime's Theme",
+                "label": "Minimal Theme - Black",
                 "uiTheme": "vs-dark",
-                "path": "./theme/maximet.json"
+                "path": "./theme/minimal-black.json"
             }
         ]
     },
