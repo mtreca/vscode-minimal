@@ -1,39 +1,34 @@
-const { readFile } = require('fs').promises;
-const { join } = require('path');
-const { Type, DEFAULT_SCHEMA, load } = require('js-yaml');
-const tinycolor = require('tinycolor2');
+const { readFile } = require("fs").promises;
+const { join } = require("path");
+const { Type, DEFAULT_SCHEMA, load } = require("js-yaml");
 
+async function getThemeMapping() {
 
-const withAlphaType = new Type('!alpha', {
-    kind: 'sequence',
-    construct: ([hexRGB, alpha]) => hexRGB + alpha,
-    represent: ([hexRGB, alpha]) => hexRGB + alpha,
-});
+    const withAlphaType = new Type("!alpha", {
+        kind: "sequence",
+        construct: ([hexRGB, alpha]) => hexRGB + alpha,
+        represent: ([hexRGB, alpha]) => hexRGB + alpha,
+    });
 
-const schema = DEFAULT_SCHEMA.extend([withAlphaType]);
+    const schema = DEFAULT_SCHEMA.extend([withAlphaType]);
 
+    mappingFile = join(__dirname, "..", "colors", "mapping.yml")
+    mapping = await readFile(mappingFile, "utf-8");
+    const base = load(mapping, { schema });
 
+    return base
+}
 
-module.exports = async () => {
-    // TODO Actually create the color mappings here?
-    // TODO At the very least, split color definitions and color mappings
-    const yamlFile = await readFile(
-        join(__dirname, '..', 'src', 'minimal.yml'),
-        'utf-8'
-    );
+async function generateJSONTheme() {
+    const base = await getThemeMapping();
 
-    /** @type {Theme} */
-    const base = load(yamlFile, { schema });
-
-    // Remove nulls and other falsey values from colors
     for (const key of Object.keys(base.colors)) {
         if (!base.colors[key]) {
             delete base.colors[key];
         }
     }
 
-    return {
-        base,
-        // soft: transformSoft(base),
-    };
-};
+    return { base };
+}
+
+module.exports = { getThemeMapping, generateJSONTheme };

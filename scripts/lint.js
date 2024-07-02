@@ -1,8 +1,7 @@
 const https = require('https');
 const generate = require('./generate');
 
-const THEME_COLOR_REFERENCE_URL =
-    'https://code.visualstudio.com/api/references/theme-color';
+const THEME_COLOR_REFERENCE_URL = 'https://code.visualstudio.com/api/references/theme-color';
 
 const NOT_THEME_KEYS = [
     'workbench.colorCustomizations',
@@ -43,19 +42,17 @@ async function scrapeThemeAvailableKeys() {
 }
 
 (async () => {
-    const availableKeys = await scrapeThemeAvailableKeys();
-    const { base } = await generate();
 
-    // TODO Add an option to disable warnings on keys with no values
-    for (const key of Object.keys(base.colors)) {
-        if (!availableKeys.includes(key)) {
-            console.warn(`Unsupported key "${key}", probably deprecated?`);
-        }
+    const possibleKeys = await scrapeThemeAvailableKeys();
+
+    const mapping = await generate.getThemeMapping();
+    const themeKeys = Object.keys(mapping.colors);
+
+    for (const key of themeKeys.filter((x) => !possibleKeys.includes(x))) {
+        console.warn(`Theme contains unsupported key "${key}".`);
     }
 
-    for (const key of availableKeys) {
-        if (!Object.keys(base.colors).includes(key)) {
-            console.warn(`Missing key "${key}" in theme`);
-        }
+    for (const key of possibleKeys.filter((x) => !themeKeys.includes(x))) {
+        console.warn(`Theme is missing key "${key}".`);
     }
 })().catch(console.error);

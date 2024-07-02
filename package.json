@@ -1,6 +1,6 @@
 {
     "name": "minimal-theme",
-    "version": "0.1.0",
+    "version": "0.1.8",
     "displayName": "Minimal VSCode Theme",
     "description": "A minimal VSCode theme.",
     "publisher": "maximetreca",
@@ -42,7 +42,6 @@
     "devDependencies": {
         "js-yaml": "^4.1.0",
         "prettier": "^3.0.0",
-        "tinycolor2": "^1.6.0",
         "@vscode/vsce": "^2.22.0"
     }
 }

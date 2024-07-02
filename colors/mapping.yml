@@ -3,37 +3,32 @@ name: Minimal
 semanticClass: theme.minimal
 semanticHighlighting: true
 palette:
-  base:
-    - &BG        '#000000'
-    - &FG        '#FFFFFF'
-    - &SELECTION '#44475A'
-    - &COMMENT   '#999999'
-    - &PASS      '#28C231'
-    - &INFO      '#0B61C9'
-    - &WARNING   '#FCB024'
-    - &ERROR     '#FB4746'
-  ansi:
-    # TODO Add better terminal colors
-    - &COLOR0    '#21222C'
-    - &COLOR1    '#FF5555'
-    - &COLOR2    '#50FA7B'
-    - &COLOR3    '#F1FA8C'
-    - &COLOR4    '#BD93F9'
-    - &COLOR5    '#FF79C6'
-    - &COLOR6    '#8BE9FD'
-    - &COLOR7    '#F8F8F2'
-    - &COLOR8    '#6272A4'
-    - &COLOR9    '#FF6E6E'
-    - &COLOR10   '#69FF94'
-    - &COLOR11   '#FFFFA5'
-    - &COLOR12   '#D6ACFF'
-    - &COLOR13   '#FF92DF'
-    - &COLOR14   '#A4FFFF'
-    - &COLOR15   '#FFFFFF'
-  other:
-    - &BGLight   '#888888'
-    - &BGMid     '#555555'
-    - &BGDark    '#222222'
+  - &BG        '#000000'
+  - &FG        '#FFFFFF'
+  - &BGDark    '#222222'
+  - &BGMid     '#555555'
+  - &BGLight   '#888888'
+  - &COMMENT   '#999999'
+  - &PASS      '#28C231'
+  - &INFO      '#0B61C9'
+  - &WARNING   '#FCB024'
+  - &ERROR     '#FB4746'
+  - &COLOR0    '#000000'
+  - &COLOR1    '#F2283C'
+  - &COLOR2    '#00AE6B'
+  - &COLOR3    '#FFC200'
+  - &COLOR4    '#277DFF'
+  - &COLOR5    '#D72E82'
+  - &COLOR6    '#875AFB'
+  - &COLOR7    '#BFBFBF'
+  - &COLOR8    '#666666'
+  - &COLOR9    '#F2283C'
+  - &COLOR10   '#00AE6B'
+  - &COLOR11   '#FFC200'
+  - &COLOR12   '#277DFF'
+  - &COLOR13   '#D72E82'
+  - &COLOR14   '#875AFB'
+  - &COLOR15   '#FFFFFF'
 
 colors:
 
@@ -88,16 +83,19 @@ colors:
   checkbox.selectBorder:                                                        # Border color of checkbox widget when the element it is in is selected.
 
   # Dropdown Control (Not used in MacOS)
+  dropdown.listBackground: *BG                                                  # Dropdown list background
   dropdown.background: *BG                                                      # Dropdown background
   dropdown.border: *BGDark                                                      # Dropdown border
   dropdown.foreground: *FG                                                      # Dropdown foreground
 
   # Input Control
   input.border: *BGDark                                                         # Input box border
+  input.background: *BGDark                                                     # Input box background
   input.foreground: *FG                                                         # Input box foreground
   input.placeholderForeground: *COMMENT                                         # Input box foreground color for placeholder text
   inputOption.activeBorder: *BGDark                                             # Border color of activated options in input fields
   inputOption.activeForeground:                                                 # Foreground color of activated options in input fields.
+  inputOption.activeBackground:                                                 # Background color of activated options in input fields.
   inputOption.hoverBackground:                                                  # Background color of activated options in input fields.
   inputValidation.errorBackground:                                              # Input validation background color for error severity
   inputValidation.errorBorder: *ERROR                                           # Input validation border color for error severity
@@ -158,10 +156,10 @@ colors:
 
   # Activity Bar
   activityBar.activeBackground: !alpha [*FG, 10]                                # Activity Bar indicator background color
+  activityBar.activeBorder:                                                     # Activity bar border color for the active item.
   activityBar.activeFocusBorder:                                                # Activity bar focus border color for the active item.
   activityBar.background: *BG                                                   # Activity Bar background color
   activityBar.border:                                                           # Activity Bar border color with the Side Bar
-  activityBar.dropBackground:                                                   # Drag and drop feedback color for the Activity Bar items
   activityBar.dropBorder:                                                       # Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
   activityBar.foreground: *FG                                                   # Activity bar foreground color (for example used for the icons)
   activityBar.inactiveForeground: *COMMENT                                      # Activity bar item foreground color when it is inactive
@@ -169,6 +167,7 @@ colors:
   activityBarBadge.foreground: *FG                                              # Activity notification badge foreground color
   activityBarTop.foreground: *FG                                                # Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
   activityBarTop.activeBorder: !alpha [*FG, 80]                                 # Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+  activityBarTop.dropBorder:                                                    # Drag and drop feedback color for the activity bar on top items.
   activityBarTop.inactiveForeground: *COMMENT                                   # Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
   activityBarTop.background: *BG                                                # Background color of the activity bar when set to top / bottom.
   activityBarTop.activeBackground: !alpha [*FG, 10]                             # Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
@@ -219,6 +218,7 @@ colors:
   editorGroup.focusedEmptyBorder:                                               # Border color of an empty editor group that is focused.
   editorGroupHeader.border:                                                     # Border color between editor group header and editor (below breadcrumbs if enabled).
   editorGroupHeader.tabsBackground: *BG                                         # Background color of the Tabs container
+  editorGroupHeader.noTabsBackground: *BG                                       # Background color of the Tabs container
   editorGroupHeader.tabsBorder:                                                 # Border color of the editor group title header when tabs are enabled. Editor groups are the containers of editors
   editorPane.background:                                                        # Background color of the editor pane visible on the left and right side of the centered editor layout.
   sideBySideEditor.horizontalBorder:                                            # Color to separate two editors from each other when shown side by side in an editor group from top to bottom.
@@ -226,6 +226,7 @@ colors:
 
   tab.activeBackground: *BG                                                     # Active Tab background color
   tab.activeBorder:                                                             # A border drawn to the bottom of the active tab
+  tab.activeModifiedBorder:                                                     # A border drawn to the bottom of the active tab
   tab.activeBorderTop: !alpha [*FG, 80]                                         # A border drawn to the top of the active tab
   tab.activeForeground: *FG                                                     # Active Tab foreground color in an active group
   tab.border: *BG                                                               # Border to separate Tabs from each other
@@ -327,6 +328,8 @@ colors:
   editorRuler.foreground:  !alpha [ *FG, 45]                                    # Color of the editor rulers
   editorWhitespace.foreground:  !alpha [ *FG, 45]                               # Color of whitespace characters in the editor
 
+  editorLink.activeForeground: *FG                                              # Foreground color of active links
+
   editorCodeLens.foreground: *COMMENT                                           # Foreground color of an editor CodeLens
   editorLightBulb.foreground:                                                   # The color used for the lightbulb actions icon.
   editorLightBulbAutoFix.foreground:                                            # The color used for the lightbulb auto fix actions icon.
@@ -339,11 +342,11 @@ colors:
   editorBracketMatch.border:                                                    # Color for matching brackets boxes
 
   editorBracketHighlight.foreground1: *FG                                       # Color of first pair of brackets
-  editorBracketHighlight.foreground2: *WARNING                                  # Color of second pair of brackets
-  editorBracketHighlight.foreground3: *INFO                                     # Color of third pair of brackets
-  editorBracketHighlight.foreground4: *PASS                                     # Color of fourth pair of brackets
-  editorBracketHighlight.foreground5: *WARNING                                  # Color of fifth pair of brackets
-  editorBracketHighlight.foreground6: *INFO                                     # Color of sixth pair of brackets
+  editorBracketHighlight.foreground2: *FG                                       # Color of second pair of brackets
+  editorBracketHighlight.foreground3: *FG                                       # Color of third pair of brackets
+  editorBracketHighlight.foreground4: *FG                                       # Color of fourth pair of brackets
+  editorBracketHighlight.foreground5: *FG                                       # Color of fifth pair of brackets
+  editorBracketHighlight.foreground6: *FG                                       # Color of sixth pair of brackets
   editorBracketHighlight.unexpectedBracket.foreground: *ERROR                   # Color of bracket matching error
 
   editorBracketPairGuide.activeBackground1:                                     # Background color of active bracket pair guides (1). Requires enabling bracket pair guides.
@@ -359,6 +362,7 @@ colors:
   editorBracketPairGuide.background5:                                           # Background color of inactive bracket pair guides (5). Requires enabling bracket pair guides.
   editorBracketPairGuide.background6:                                           # Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.
 
+  editorOverviewRuler.background:                                               # Color of the overview ruler background.
   editorOverviewRuler.border: *BGDark                                           # Color of the overview ruler border.
   editorOverviewRuler.findMatchForeground:                                      # Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.
   editorOverviewRuler.rangeHighlightForeground:                                 # Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
@@ -504,6 +508,7 @@ colors:
   peekViewEditor.matchHighlightBackground: !alpha [ *WARNING, 80 ]              # Match highlight color in the peek view editor
   peekViewResult.background: *BG                                                # Background color of the peek view result list
   peekViewResult.fileForeground: *FG                                            # Foreground color for file nodes in the peek view result list
+  peekViewResult.selectionForeground: *FG                                       # Foreground color for file nodes in the peek view result list
   peekViewResult.lineForeground: *FG                                            # Foreground color for line nodes in the peek view result list
   peekViewResult.matchHighlightBackground: !alpha [ *WARNING, 80 ]              # Match highlight color in the peek view result list
   peekViewResult.selectionBackground: *BGMid                                    # Background color of the selected entry in the peek view result list
@@ -543,6 +548,8 @@ colors:
 
   # Panel Colors
   panel.border: *BGMid                                                          # Panel border color on the top separating to the editor
+  panel.dropBorder: *BGMid                                                      # Panel border color on the top separating to the editor
+  panel.background: *BG                                                         # Panel background color on the top separating to the editor
   panelTitle.activeBorder: *BGMid                                               # Border color for the active panel title
   panelTitle.activeForeground: *FG                                              # Title color for the active panel
   panelTitle.inactiveForeground: *COMMENT                                       # Title color for the inactive panel
@@ -567,7 +574,9 @@ colors:
   statusBarItem.remoteForeground: *BG                                           # Background color for the remote indicator on the status bar
   statusBarItem.remoteBackground: *FG                                           # Foreground color for the remote indicator on the status bar
   statusBar.border:                                                             # Status Bar border color separating the Status Bar and editor.
-  statusBar.debuggingBorder:                                                    # Status Bar border color separating the Status Bar and editor when a program is being debugged.
+  statusBar.debuggingBackground: *BG                                            # Status Bar border color separating the Status Bar and editor when a program is being debugged.
+  statusBar.debuggingBorder: *BG                                                # Status Bar border color separating the Status Bar and editor when a program is being debugged.
+  statusBar.debuggingForeground: *FG                                            # Status Bar border color separating the Status Bar and editor when a program is being debugged.
   statusBar.noFolderBorder:                                                     # Status Bar border color separating the Status Bar and editor when no folder is opened.
   statusBarItem.activeBackground:                                               # Status Bar item background color when clicking.
   statusBarItem.hoverForeground:                                                # Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.
@@ -594,6 +603,7 @@ colors:
 
   # Title Bar Colors (MacOS Only)
   titleBar.activeBackground: *BG                                                # Title Bar background when the window is active
+  titleBar.activeForeground: *FG                                                # Title Bar foreground when the window is active
   titleBar.inactiveBackground: *BG                                              # Title Bar background when the window is inactive
   titleBar.inactiveForeground: *COMMENT                                         # Title Bar foreground when the window is inactive
   titleBar.border:                                                              # Title bar border color.
@@ -774,8 +784,6 @@ colors:
   walkThrough.embeddedEditorBackground: *BGDark                                 # Background color for the embedded editors on the Interactive Playground
   walkthrough.stepTitle.foreground:                                             # Foreground color of the heading of each walkthrough step.
   welcomePage.background:                                                       # Background color for the Welcome page.
-  welcomePage.buttonBackground:                                                 # Background color for the buttons on the Welcome page
-  welcomePage.buttonHoverBackground:                                            # Hover background color for the buttons on the Welcome page
   welcomePage.progress.background:                                              # Foreground color for the Welcome page progress bars.
   welcomePage.progress.foreground:                                              # Background color for the Welcome page progress bars.
   welcomePage.tileBackground:                                                   # Background color for the tiles on the Welcome page.
@@ -798,14 +806,17 @@ colors:
   # Setting Editor
   settings.headerForeground: *FG                                                # The foreground color for a section header or active title
   settings.modifiedItemIndicator: *WARNING                                      # The color of the line that indicates a modified setting
-  settings.inactiveSelectedItemBorder:                                          # The color of the selected setting row border, when the settings list does not have focus
   settings.dropdownBackground: *BGDark                                          # Dropdown background
+  settings.dropdownForeground: *FG                                              # Dropdown foreground
   settings.dropdownBorder: *BGDark                                              # Dropdown border
+  settings.checkboxForeground: *FG                                              # Checkbox foreground
   settings.checkboxBackground: *BGDark                                          # Checkbox background
   settings.checkboxBorder: *BGDark                                              # Checkbox border
+  settings.textInputForeground: *FG                                             # Text input box foreground
   settings.textInputBackground: *BGDark                                         # Text input box background
   settings.textInputBorder: *BGDark                                             # Text input box border
   settings.numberInputBackground: *BGDark                                       # Number input box background
+  settings.numberInputForeground: *FG                                           # Number input box foreground
   settings.numberInputBorder: *BGDark                                           # Number input box border
   settings.dropdownListBorder:                                                  # Dropdown list border.
   settings.rowHoverBackground:                                                  # The background color of a settings row when hovered.
@@ -816,8 +827,9 @@ colors:
   settings.settingsHeaderHoverForeground:                                       # The foreground color for a section header or hovered title.
 
   # Breadcrumbs
-  breadcrumb.foreground: *COMMENT                                               # Color of breadcrumb items
-  breadcrumb.background: *BG
+  breadcrumb.foreground: *COMMENT                                               # Foreground color of breadcrumb items
+  breadcrumb.activeSelectionForeground: *COMMENT                                # Foreground color of selected breadcrumb item
+  breadcrumb.background: *BG                                                    # Background color of breadcrumb items
   breadcrumb.focusForeground: *FG                                               # Color of focused breadcrumb items
   breadcrumbPicker.background: *BGDark                                          # Background color of breadcrumb item picker
 
@@ -942,90 +954,61 @@ colors:
   scm.historyItemSelectedStatisticsBorder:                                      # History item selected statistics border color.
 
 
-# Syntax Highlighting
 tokenColors:
 
-# General
-  - scope:
+  # General
+
+  - name: Italic
+    scope:
     - emphasis
+    - markup.italic
     settings:
       fontStyle: italic
-  - scope:
+
+  - name: Bold
+    scope:
+    - markup.bold
     - strong
     settings:
       fontStyle: bold
-  - scope:
-    - header
-    settings:
-      foreground: *FG
 
-  # Diffs
-  - scope:
-    - meta.diff
-    - meta.diff.header
-    settings:
-      foreground: *COMMENT
-  - scope:
-    - markup.inserted
-    settings:
-      foreground: *PASS
-  - scope:
-    - markup.deleted
-    settings:
-      foreground: *ERROR
-  - scope:
-    - markup.changed
-    settings:
-      foreground: *WARNING
-  - scope:
-    - invalid
-    settings:
-      foreground: *ERROR
-      fontStyle: underline italic
-  - scope:
-    - invalid.deprecated
-    settings:
-      foreground: *FG
-      fontStyle: underline italic
-  - scope:
-    - entity.name.filename
-    settings:
-      foreground: *FG
-  - scope:
-    - markup.error
-    settings:
-      foreground: *ERROR
-
-  # Markdown / RST / Prose
-
-  - name: Underlined markup
+  - name: Underlines
     scope:
     - markup.underline
     settings:
       fontStyle: underline
 
-  - name: Bold markup
+  - name: Headers
     scope:
-    - markup.bold
+    - header
     settings:
-      fontStyle: bold
       foreground: *FG
 
-  - name: Markup headings
+  - name: Errors
+    scope:
+      - log.error
+    settings:
+      foreground: *ERROR
+      fontStyle: bold
+
+  - name: Warnings
+    scope:
+      - log.warning
+    settings:
+      foreground: *WARNING
+      fontStyle: bold
+
+
+  # Text and Prose
+
+  - name: Headings
     scope:
     - markup.heading
     settings:
       fontStyle: bold
       foreground: *FG
 
-  - name: Markup italic
-    scope:
-    - markup.italic
-    settings:
-      foreground: *FG
-      fontStyle: italic
-
-  - name: Bullets, lists (prose)
+  - name: Lists
     scope:
     - beginning.punctuation.definition.list.markdown
     - beginning.punctuation.definition.quote.markdown
@@ -1033,30 +1016,27 @@ tokenColors:
     settings:
       foreground: *FG
 
-  - name: Inline code (prose)
+  - name: Code
     scope:
     - markup.inline.raw
     - markup.raw.restructuredtext
+    - fenced_code.block.language
+    - markup.raw.inner.restructuredtext
+    - markup.fenced_code.block.markdown punctuation.definition.markdown
     settings:
       foreground: *FG
 
-  - name: Links (prose)
+  - name: Links
     scope:
     - markup.underline.link
     - markup.underline.link.image
-    settings:
-      foreground: *FG
-
-  - name: Link text, image alt text (prose)
-    scope:
     - meta.link.reference.def.restructuredtext
     - punctuation.definition.directive.restructuredtext
-    - string.other.link.description
-    - string.other.link.title
     settings:
       foreground: *FG
+      fontStyle: underline
 
-  - name: Blockquotes (prose)
+  - name: Quotes
     scope:
     - entity.name.directive.restructuredtext
     - markup.quote
@@ -1064,76 +1044,27 @@ tokenColors:
       foreground: *FG
       fontStyle: italic
 
-  - name: Horizontal rule (prose)
+  - name: Horizontal Rules
     scope:
     - meta.separator.markdown
     settings:
       foreground: *COMMENT
 
-  - name: Code blocks
+  - name: Extras
     scope:
-    - fenced_code.block.language
-    - markup.raw.inner.restructuredtext
-    - markup.fenced_code.block.markdown punctuation.definition.markdown
-    settings:
-      foreground: *FG
-
-  - name: Prose constants
-    scope:
+    - string.other.link.description
+    - string.other.link.title
     - punctuation.definition.constant.restructuredtext
-    settings:
-      foreground: *FG
-
-  - name: Braces in markdown headings
-    scope:
     - markup.heading.markdown punctuation.definition.string.begin
     - markup.heading.markdown punctuation.definition.string.end
-    settings:
-      foreground: *FG
-
-  - name: Braces in markdown paragraphs
-    scope:
     - meta.paragraph.markdown punctuation.definition.string.begin
     - meta.paragraph.markdown punctuation.definition.string.end
-    settings:
-      foreground: *FG
-
-  - name: Braces in markdown blockquotes
-    scope:
     - markup.quote.markdown meta.paragraph.markdown punctuation.definition.string.begin
     - markup.quote.markdown meta.paragraph.markdown punctuation.definition.string.end
     settings:
       foreground: *FG
 
-# Classes
-
-  - name: User-defined class names
-    scope:
-    - entity.name.type.class
-    - entity.name.class
-    settings:
-      foreground: *FG
-
-  - name: this, super, self, etc.
-    scope:
-    - keyword.expressions-and-types.swift
-    - keyword.other.this
-    - variable.language
-    - variable.language punctuation.definition.variable.php # the "$" symbol in $this
-    - variable.other.readwrite.instance.ruby                # ruby's "@" instance symbol
-    - variable.parameter.function.language.special          # Special words as parameters
-    settings:
-      foreground: *FG
-      fontStyle: italic
-
-  - name: Inherited classes
-    scope:
-    - entity.other.inherited-class
-    settings:
-      fontStyle: italic
-      foreground: *FG
-
-# Comments
+  # Comments
 
   - name: Comments
     scope:
@@ -1144,162 +1075,150 @@ tokenColors:
     settings:
       foreground: *COMMENT
 
-  - name: JSDoc-style keywords
+  - name: Docstrings
+    scope:
+    - string.quoted.docstring.multi
+    - string.quoted.docstring.multi.python punctuation.definition.string.begin
+    - string.quoted.docstring.multi.python punctuation.definition.string.end
+    - string.quoted.docstring.multi.python constant.character.escape
+    settings:
+      foreground: *COMMENT
+
+  - name: Documentation keywords
     scope:
     - comment keyword.codetag.notation
     - comment.block.documentation keyword
     - comment.block.documentation storage.type.class
-    settings:
-      foreground: *FG
-
-  - name: JSDoc-style types
-    scope:
     - comment.block.documentation entity.name.type
-    settings:
-      foreground: *FG
-      fontStyle: italic
-
-  - name: JSDoc-style type brackets
-    scope:
     - comment.block.documentation entity.name.type punctuation.definition.bracket
-    settings:
-      foreground: *FG
-
-  - name: JSDoc-style comment parameters
-    scope:
     - comment.block.documentation variable
     settings:
       foreground: *FG
-      fontStyle: italic
 
-# Constants
+  # Strings
+
+  - name: Strings
+    scope:
+    - string
+    - punctuation.definition.string.begin
+    - punctuation.definition.string.end
+    - punctuation.support.type.property-name.begin
+    - punctuation.support.type.property-name.end
+    settings:
+      foreground: *FG
+
+  - name: RegExp
+    scope:
+    - string.regexp
+    - constant.other.character-class.set.regexp
+    - constant.character.escape.backslash.regexp
+    - punctuation.definition.group.capture.regexp
+    - punctuation.definition.character-class.regexp
+    - punctuation.definition.group.regexp
+    - meta.assertion.look-ahead.regexp
+    - punctuation.definition.group.assertion.regexp
+    - keyword.operator.negation.regexp
+    - string.regexp punctuation.definition.string.begin
+    - string.regexp punctuation.definition.string.end
+    settings:
+      foreground: *FG
+
+  # Variables
+
+  - name: Variables
+    scope:
+    - variable
+    - support.variable.property
+    - meta.import variable.other.readwrite
+    - meta.import variable.other.readwrite.alias
+    - meta.export variable.other.readwrite.alias
+    settings:
+      foreground: *FG
 
   - name: Constants
     scope:
     - constant
-    - variable.other.constant
-    settings:
-      foreground: *FG
-
-  - name: Constant escape sequences
-    scope:
     - constant.character.escape
     - constant.character.string.escape
     - constant.regexp
+    - variable.other.constant
+    - constant.other.date
+    - constant.other.timestamp
     settings:
       foreground: *FG
 
-# Entities
-
-  - name: HTML tags
+  - name: Entities
     scope:
     - entity.name.tag
-    settings:
-      foreground: *FG
-
-  - name: CSS attribute parent selectors ('&')
-    scope:
+    - entity.other.attribute-name
     - entity.other.attribute-name.parent-selector
     settings:
       foreground: *FG
 
-  - name: HTML/CSS attribute names
+  # Objects, Functions
+
+  - name: Classes
     scope:
-    - entity.other.attribute-name
+    - entity.name.type.class
+    - entity.name.class
+    - entity.other.inherited-class
     settings:
       foreground: *FG
-      fontStyle: italic
 
-# Functions/Methods
-
-  - name: Function names
+  - name: Functions
     scope:
     - entity.name.function
     - meta.function-call.object
-    - meta.function-call.php
     - meta.function-call.static
-    - meta.method-call.java meta.method
-    - meta.method.groovy
-    - support.function.any-method.lua
     - keyword.operator.function.infix
-    settings:
-      foreground: *FG
-
-  - name: Function parameters
-    scope:
     - entity.name.variable.parameter
-    - meta.at-rule.function variable # Sass function params
-    - meta.at-rule.mixin variable    # Sass mixin params
-    - meta.function.arguments variable.other.php
-    - meta.selectionset.graphql meta.arguments.graphql variable.arguments.graphql
+    - meta.at-rule.function variable
+    - meta.at-rule.mixin variable
     - variable.parameter
     settings:
-      fontStyle: italic
       foreground: *FG
 
   - name: Decorators
     scope:
     - meta.decorator variable.other.readwrite
     - meta.decorator variable.other.property
-    settings:
-      foreground: *FG
-      fontStyle: italic
-
-  - name: Decorator Objects
-    scope:
-      - meta.decorator variable.other.object
+    - meta.decorator variable.other.object
     settings:
       foreground: *FG
 
-# Keywords
-
-  - name: Keywords
+  - name: Storage
     scope:
-    - keyword
-    - punctuation.definition.keyword
+    - storage
+    - entity.name.type
+    - entity.name.type.type-parameter
+    - meta.indexer.mappedtype.declaration entity.name.type
+    - meta.type.parameters entity.name.type
+    - storage.modifier
     settings:
       foreground: *FG
-
-  - name: Keyword "new"
-    scope:
-    - keyword.control.new
-    - keyword.operator.new
-    settings:
-      fontStyle: bold
-
-  - name: Generic selectors (CSS/SCSS/Less/Stylus)
-    scope:
-    - meta.selector
-    settings:
-      foreground: *FG
-
-# Language Built-ins
 
   - name: Language Built-ins
     scope:
+    - keyword
+    - keyword.control.new
+    - keyword.operator.new
+    - keyword.other.this
+    - meta.selector
+    - punctuation.definition.keyword
     - support
-    settings:
-      fontStyle: italic
-      foreground: *FG
-
-  - name: Built-in magic functions and constants
-    scope:
-    - support.function.magic
-    - support.variable
-    - variable.other.predefined
-    settings:
-      foreground: *FG
-
-  - name: Built-in functions / properties
-    scope:
     - support.function
+    - support.function.magic
     - support.type.property-name
+    - support.variable
+    - variable.language
+    - variable.other.predefined
+    - variable.parameter.function.language.special
     settings:
       foreground: *FG
 
-# Punctuation
+  # Punctuation
 
-  - name: Separators (key/value, namespace, inheritance, pointer, hash, slice, etc)
+  - name: Separators
     scope:
     - constant.other.symbol.hashkey punctuation.definition.constant.ruby
     - entity.other.attribute-name.placeholder punctuation # Sass placeholder `%` symbols
@@ -1328,309 +1247,146 @@ tokenColors:
     settings:
       foreground: *FG
 
-  - name: Brackets, braces, parens, etc.
+  - name: Special Characters
     scope:
-    - keyword.operator.other.powershell # Commas
-    - keyword.other.statement-separator.powershell
     - meta.brace.round
     - meta.function-call punctuation
     - punctuation.definition.arguments.begin
     - punctuation.definition.arguments.end
     - punctuation.definition.entity.begin
     - punctuation.definition.entity.end
-    - punctuation.definition.tag.cs # HTML tags in comments
+    - punctuation.definition.tag.cs
     - punctuation.definition.type.begin
     - punctuation.definition.type.end
     - punctuation.section.scope.begin
     - punctuation.section.scope.end
-    - punctuation.terminator.expression.php
-    - storage.type.generic.java
     - string.template meta.brace
     - string.template punctuation.accessor
-    settings:
-      foreground: *FG
-
-  - name: Variable interpolation operators
-    scope:
     - meta.string-contents.quoted.double punctuation.definition.variable
     - punctuation.definition.interpolation.begin
     - punctuation.definition.interpolation.end
     - punctuation.definition.template-expression.begin
     - punctuation.definition.template-expression.end
     - punctuation.section.embedded.begin
-    - punctuation.section.embedded.coffee
     - punctuation.section.embedded.end
-    - punctuation.section.embedded.end source.php  # PHP edge case
-    - punctuation.section.embedded.end source.ruby # Issue with ruby's tmLanguage
-    - punctuation.definition.variable.makefile
     settings:
       foreground: *FG
 
-# Serializable / Config Langages
+  # Language-Specific
 
-  - name: Keys (serializable languages)
-    scope:
-    - entity.name.function.target.makefile
-    - entity.name.section.toml
-    - entity.name.tag.yaml
-    - variable.other.key.toml
-    settings:
-      foreground: *FG
-
-  - name: Dates / timestamps (serializable languages)
-    scope:
-    - constant.other.date
-    - constant.other.timestamp
-    settings:
-      foreground: *FG
-
-  - name: YAML aliases
-    scope:
-    - variable.other.alias.yaml
-    settings:
-      fontStyle: italic underline
-      foreground: *FG
-
-# Storage
-
-  - name: Storage
-    scope:
-    - storage
-    - meta.implementation storage.type.objc
-    - meta.interface-or-protocol storage.type.objc
-    - source.groovy storage.type.def
-    settings:
-      foreground: *FG
-
-  - name: Types
-    scope:
-    - entity.name.type
-    - keyword.primitive-datatypes.swift
-    - keyword.type.cs
-    - meta.protocol-list.objc
-    - meta.return-type.objc
-    - source.go storage.type
-    - source.groovy storage.type
-    - source.java storage.type
-    - source.powershell entity.other.attribute-name
-    - storage.class.std.rust
-    - storage.type.attribute.swift
-    - storage.type.c
-    - storage.type.core.rust
-    - storage.type.cs
-    - storage.type.groovy
-    - storage.type.objc
-    - storage.type.php
-    - storage.type.haskell
-    - storage.type.ocaml
-    settings:
-      fontStyle: italic
-      foreground: *FG
-
-  - name: Generics, templates, and mapped type declarations
-    scope:
-    - entity.name.type.type-parameter
-    - meta.indexer.mappedtype.declaration entity.name.type # Mapped type declarations
-    - meta.type.parameters entity.name.type                # Generic type declarations
-    settings:
-      foreground: *FG
-
-  - name: Modifiers
-    scope:
-    - storage.modifier
-    settings:
-      foreground: *FG
-
-# RegExp
-
-  - name: RegExp string
-    scope:
-    - string.regexp
-    - constant.other.character-class.set.regexp
-    - constant.character.escape.backslash.regexp
-    settings:
-      foreground: *FG
-
-  - name: Non-capture operators
-    scope:
-    # NOTE: The scope name is a misnomer. It is actually non-capture operators
-    - punctuation.definition.group.capture.regexp
-    settings:
-      foreground: *FG
-
-  - name: RegExp start and end characters
-    scope:
-    - string.regexp punctuation.definition.string.begin
-    - string.regexp punctuation.definition.string.end
-    settings:
-      foreground: *ERROR
-
-  - name: Character group
-    scope:
-    - punctuation.definition.character-class.regexp
-    settings:
-      foreground: *FG
-
-  - name: Capture groups
-    scope:
-    - punctuation.definition.group.regexp
-    settings:
-      foreground: *FG
-
-  - name: Assertion operators
-    scope:
-    - punctuation.definition.group.assertion.regexp
-    - keyword.operator.negation.regexp
-    settings:
-      foreground: *ERROR
-
-  - name: Positive lookaheads
-    scope:
-    - meta.assertion.look-ahead.regexp
-    settings:
-      foreground: *FG
-
-
-# Strings
-
-  - name: Strings
-    scope:
-    - string
-    - punctuation.definition.string.begin
-    - punctuation.definition.string.end
-    - punctuation.support.type.property-name.begin
-    - punctuation.support.type.property-name.end
-    settings:
-      foreground: *FG
-
-  - name: Docstrings
-    scope:
-    - string.quoted.docstring.multi
-    - string.quoted.docstring.multi.python punctuation.definition.string.begin
-    - string.quoted.docstring.multi.python punctuation.definition.string.end
-    - string.quoted.docstring.multi.python constant.character.escape
-    settings:
-      foreground: *COMMENT
-
-# Variables
-
-  - name: Variables and object properties
-    scope:
-    - variable
-    - constant.other.key.perl     # Perl edge case
-    - support.variable.property   # Object properties
-    - variable.other.constant.js  # Fix incorrect highlighting of pseudo-constants in js, jsx
-    - variable.other.constant.ts  # Fixes incorrect highlighting of pseudo-constants in ts
-    - variable.other.constant.tsx # Fixes incorrect highlighting of pseudo-constants in tsx
-    settings:
-      foreground: *FG
-
-  - name: Destructuring / aliasing reference name (LHS)
-    scope:
-    - meta.import variable.other.readwrite                          # Module import aliasing (real name)
-    - meta.variable.assignment.destructured.object.coffee variable  # Object destructuring property (coffeescript)
-    settings:
-      fontStyle: italic
-      foreground: *FG
-
-  - name: Destructuring / aliasing variable name (RHS)
-    scope:
-    - meta.import variable.other.readwrite.alias                             # Module import aliasing (alias name)
-    - meta.export variable.other.readwrite.alias                             # Module import aliasing (alias name)
-    - meta.variable.assignment.destructured.object.coffee variable variable  # Object destructuring variable (coffeescript)
-    settings:
-      foreground: *FG
-
-# Language Extensions / Edge Cases
-
-  # GraphQL
-  - name: GraphQL keys
+  - name: GraphQL
     scope:
     - meta.selectionset.graphql variable
-    settings:
-      foreground: *FG
-
-  - name: GraphQL function arguments
-    scope:
     - meta.selectionset.graphql meta.arguments variable
-    settings:
-      foreground: *FG
-
-  - name: GraphQL fragment name (definition)
-    scope:
     - entity.name.fragment.graphql
     - variable.fragment.graphql
     settings:
       foreground: *FG
 
-  # Edge Cases
-  - name: Edge cases (foreground color resets)
+  - name: Shell
     scope:
-    - constant.other.symbol.hashkey.ruby                            # Ruby hash keys
-    - keyword.operator.dereference.java                             # Java dot access
-    - keyword.operator.navigation.groovy                            # groovy dot access
     - meta.scope.for-loop.shell punctuation.definition.string.begin
     - meta.scope.for-loop.shell punctuation.definition.string.end
     - meta.scope.for-loop.shell string
-    - storage.modifier.import                                       # Java / Groovy imports
-    - punctuation.section.embedded.begin.tsx
-    - punctuation.section.embedded.end.tsx
-    - punctuation.section.embedded.begin.jsx
-    - punctuation.section.embedded.end.jsx
-    - punctuation.separator.list.comma.css                          # Commas separating selectors in CSS
-    - constant.language.empty-list.haskell
+    - source.shell variable.other # (shell variables like `$1`)
     settings:
       foreground: *FG
 
-  # This is set to conform to the standard of coloring langage constants purple.
-  # In this case, this colors "$?", "$@", "$*", "$1", etc..
-  - name: Shell variables prefixed with "$" (edge case)
+  - name: Others (TODO)
     scope:
-    - source.shell variable.other
-    settings:
-      foreground: *FG
-
-  - name: Powershell constants mistakenly scoped to `support`, rather than `constant` (edge)
-    scope:
-    - support.constant
-    settings:
-      foreground: *FG
-
-  - name: Makefile prerequisite names
-    scope:
+    - constant.other.key.perl     # Perl edge case
+    - constant.other.symbol.hashkey.ruby                            # Ruby hash keys
+    - entity.name.function.target.makefile
+    - entity.name.section.toml
+    - entity.name.tag.yaml
+    - keyword.expressions-and-types.swift
+    - keyword.operator.dereference.java                             # Java dot access
+    - keyword.operator.navigation.groovy                            # groovy dot access
+    - keyword.operator.other.powershell # Commas
+    - keyword.other.statement-separator.powershell
+    - keyword.primitive-datatypes.swift
+    - keyword.type.cs
+    - meta.function-call.php
+    - meta.function.arguments variable.other.php
+    - meta.implementation storage.type.objc
+    - meta.interface-or-protocol storage.type.objc
+    - meta.method-call.java meta.method
+    - meta.method.groovy
+    - meta.protocol-list.objc
+    - meta.return-type.objc
     - meta.scope.prerequisites.makefile
+    - meta.selectionset.graphql meta.arguments.graphql variable.arguments.graphql
+    - meta.variable.assignment.destructured.object.coffee variable  # Object destructuring property (coffeescript)
+    - meta.variable.assignment.destructured.object.coffee variable variable  # Object destructuring variable (coffeescript)
+    - punctuation.definition.variable.makefile
+    - punctuation.section.embedded.begin.jsx
+    - punctuation.section.embedded.begin.tsx
+    - punctuation.section.embedded.coffee
+    - punctuation.section.embedded.end source.php  # PHP edge case
+    - punctuation.section.embedded.end source.ruby # Issue with ruby's tmLanguage
+    - punctuation.section.embedded.end.jsx
+    - punctuation.section.embedded.end.tsx
+    - punctuation.separator.list.comma.css                          # Commas separating selectors in CSS
+    - punctuation.terminator.expression.php
+    - source.go storage.type
+    - source.groovy storage.type
+    - source.groovy storage.type.def
+    - source.java storage.type
+    - source.powershell entity.other.attribute-name
+    - storage.class.std.rust
+    - storage.modifier.import                                       # Java / Groovy imports
+    - storage.type.attribute.swift
+    - storage.type.c
+    - storage.type.core.rust
+    - storage.type.cs
+    - storage.type.generic.java
+    - storage.type.groovy
+    - storage.type.haskell
+    - storage.type.objc
+    - storage.type.ocaml
+    - storage.type.php
+    - support.constant
+    - support.function.any-method.lua
+    - variable.language punctuation.definition.variable.php # the "$" symbol in $this
+    - variable.other.alias.yaml
+    - variable.other.constant.js  # Fix incorrect highlighting of pseudo-constants in js, jsx
+    - variable.other.constant.ts  # Fixes incorrect highlighting of pseudo-constants in ts
+    - variable.other.constant.tsx # Fixes incorrect highlighting of pseudo-constants in tsx
+    - variable.other.key.toml
+    - variable.other.readwrite.instance.ruby                # ruby's "@" instance symbol
     settings:
       foreground: *FG
 
-  - name: SCSS attibute selector strings
-    scope:
-      - meta.attribute-selector.scss
+  # Diffs
+
+  - scope:
+    - meta.diff
+    - meta.diff.header
     settings:
       foreground: *FG
 
-  - name: SCSS attribute selector brackets
-    scope:
-      - punctuation.definition.attribute-selector.end.bracket.square.scss
-      - punctuation.definition.attribute-selector.begin.bracket.square.scss
+  - scope:
+    - markup.inserted
     settings:
-      foreground: *FG
+      foreground: *PASS
 
-  - name: Haskell Pragmas
-    scope:
-      - meta.preprocessor.haskell
-    settings:
-      foreground: *COMMENT
-
-  - name: Log file error
-    scope:
-      - log.error
+  - scope:
+    - markup.deleted
     settings:
       foreground: *ERROR
-      fontStyle: bold
 
-  - name: Log file warning
-    scope:
-      - log.warning
+  - scope:
+    - markup.changed
     settings:
       foreground: *WARNING
-      fontStyle: bold
+
+  - scope:
+    - invalid
+    - invalid.deprecated
+    settings:
+      foreground: *ERROR
+
+  - scope:
+    - markup.error
+    settings:
+      foreground: *ERROR
