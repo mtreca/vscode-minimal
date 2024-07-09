@@ -9,10 +9,10 @@ palette:
   - &BGMid     '#555555'
   - &BGLight   '#888888'
   - &COMMENT   '#999999'
-  - &PASS      '#28C231'
-  - &INFO      '#0B61C9'
-  - &WARNING   '#FCB024'
-  - &ERROR     '#FB4746'
+  - &PASS      '#00AE6B'
+  - &INFO      '#277DFF'
+  - &WARNING   '#FFC200'
+  - &ERROR     '#F2283C'
   - &COLOR0    '#000000'
   - &COLOR1    '#F2283C'
   - &COLOR2    '#00AE6B'
@@ -838,7 +838,7 @@ colors:
   editor.snippetTabstopHighlightBackground: *BG                                 # Highlight background color of a snippet tabstop
   editor.snippetTabstopHighlightBorder: *COMMENT                                # Highlight border color of a snippet tabstop
   editor.snippetFinalTabstopHighlightBackground: *BG                            # Highlight background color of the final tabstop of a snippet
-  editor.snippetFinalTabstopHighlightBorder: *PASS                              # Highlight border color of the final tabstop of a snippet
+  editor.snippetFinalTabstopHighlightBorder: *BGMid                             # Highlight border color of the final tabstop of a snippet
 
   # Symbol Icons colors
 
@@ -1221,7 +1221,7 @@ tokenColors:
   - name: Separators
     scope:
     - constant.other.symbol.hashkey punctuation.definition.constant.ruby
-    - entity.other.attribute-name.placeholder punctuation # Sass placeholder `%` symbols
+    - entity.other.attribute-name.placeholder punctuation
     - entity.other.attribute-name.pseudo-class punctuation
     - entity.other.attribute-name.pseudo-element punctuation
     - meta.group.double.toml
@@ -1294,15 +1294,15 @@ tokenColors:
 
   - name: Others (TODO)
     scope:
-    - constant.other.key.perl     # Perl edge case
-    - constant.other.symbol.hashkey.ruby                            # Ruby hash keys
+    - constant.other.key.perl
+    - constant.other.symbol.hashkey.ruby
     - entity.name.function.target.makefile
     - entity.name.section.toml
     - entity.name.tag.yaml
     - keyword.expressions-and-types.swift
-    - keyword.operator.dereference.java                             # Java dot access
-    - keyword.operator.navigation.groovy                            # groovy dot access
-    - keyword.operator.other.powershell # Commas
+    - keyword.operator.dereference.java
+    - keyword.operator.navigation.groovy
+    - keyword.operator.other.powershell
     - keyword.other.statement-separator.powershell
     - keyword.primitive-datatypes.swift
     - keyword.type.cs
@@ -1316,17 +1316,17 @@ tokenColors:
     - meta.return-type.objc
     - meta.scope.prerequisites.makefile
     - meta.selectionset.graphql meta.arguments.graphql variable.arguments.graphql
-    - meta.variable.assignment.destructured.object.coffee variable  # Object destructuring property (coffeescript)
-    - meta.variable.assignment.destructured.object.coffee variable variable  # Object destructuring variable (coffeescript)
+    - meta.variable.assignment.destructured.object.coffee variable
+    - meta.variable.assignment.destructured.object.coffee variable variable
     - punctuation.definition.variable.makefile
     - punctuation.section.embedded.begin.jsx
     - punctuation.section.embedded.begin.tsx
     - punctuation.section.embedded.coffee
-    - punctuation.section.embedded.end source.php  # PHP edge case
-    - punctuation.section.embedded.end source.ruby # Issue with ruby's tmLanguage
+    - punctuation.section.embedded.end source.php
+    - punctuation.section.embedded.end source.ruby
     - punctuation.section.embedded.end.jsx
     - punctuation.section.embedded.end.tsx
-    - punctuation.separator.list.comma.css                          # Commas separating selectors in CSS
+    - punctuation.separator.list.comma.css
     - punctuation.terminator.expression.php
     - source.go storage.type
     - source.groovy storage.type
@@ -1334,7 +1334,7 @@ tokenColors:
     - source.java storage.type
     - source.powershell entity.other.attribute-name
     - storage.class.std.rust
-    - storage.modifier.import                                       # Java / Groovy imports
+    - storage.modifier.import
     - storage.type.attribute.swift
     - storage.type.c
     - storage.type.core.rust
@@ -1347,13 +1347,13 @@ tokenColors:
     - storage.type.php
     - support.constant
     - support.function.any-method.lua
-    - variable.language punctuation.definition.variable.php # the "$" symbol in $this
+    - variable.language punctuation.definition.variable.php
     - variable.other.alias.yaml
-    - variable.other.constant.js  # Fix incorrect highlighting of pseudo-constants in js, jsx
-    - variable.other.constant.ts  # Fixes incorrect highlighting of pseudo-constants in ts
-    - variable.other.constant.tsx # Fixes incorrect highlighting of pseudo-constants in tsx
+    - variable.other.constant.js
+    - variable.other.constant.ts
+    - variable.other.constant.tsx
     - variable.other.key.toml
-    - variable.other.readwrite.instance.ruby                # ruby's "@" instance symbol
+    - variable.other.readwrite.instance.ruby
     settings:
       foreground: *FG
 
