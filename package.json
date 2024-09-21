@@ -1,6 +1,6 @@
 {
     "name": "minimal-theme",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "displayName": "Minimal VSCode Theme",
     "description": "A minimal VSCode theme.",
     "publisher": "maximetreca",
@@ -9,7 +9,7 @@
     "scripts": {
         "build": "node ./scripts/build.js",
         "lint": "node ./scripts/lint.js",
-        "package": "vsce package -o ./bin/minimal.vsix",
+        "package": "vsce package -o ./minimal-theme.vsix",
         "vscode:prepublish": "npm run build",
         "vsce-publish": "vsce publish"
     },
@@ -40,7 +40,7 @@
         ]
     },
     "devDependencies": {
-        "@vscode/vsce": "^2.22.0",
+        "@vscode/vsce": "^3.1.0",
         "js-yaml": "^4.1.0"
     }
 }
