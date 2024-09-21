@@ -29,6 +29,7 @@ palette:
   - &COLOR13   '#D72E82'
   - &COLOR14   '#875AFB'
   - &COLOR15   '#FFFFFF'
+  - &DEBUG     '#FF69B4'
 
 colors:
 
@@ -66,6 +67,10 @@ colors:
   toolbar.hoverBackground:                                                      # Toolbar background when hovering over actions using the mouse
   toolbar.hoverOutline:                                                         # Toolbar outline when hovering over actions using the mouse
   toolbar.activeBackground:                                                     # Toolbar background when holding the mouse over actions
+  editorActionList.background:                                                  # Action List background color.
+  editorActionList.foreground:                                                  # Action List foreground color.
+  editorActionList.focusForeground:                                             # Action List foreground color for the focused item.
+  editorActionList.focusBackground:                                             # Action List background color for the focused item.
 
   # Button Control
   button.background: *BGDark                                                    # Button background color
@@ -81,6 +86,13 @@ colors:
   checkbox.border:                                                              # Border color of checkbox widget.
   checkbox.selectBackground:                                                    # Background color of checkbox widget when the element it is in is selected.
   checkbox.selectBorder:                                                        # Border color of checkbox widget when the element it is in is selected.
+  radio.activeForeground:                                                       # Foreground color of active radio option.
+  radio.activeBackground:                                                       # Background color of active radio option.
+  radio.activeBorder:                                                           # Border color of the active radio option.
+  radio.inactiveForeground:                                                     # Foreground color of inactive radio option.
+  radio.inactiveBackground:                                                     # Background color of inactive radio option.
+  radio.inactiveBorder:                                                         # Border color of the inactive radio option.
+  radio.inactiveHoverBackground:                                                # Background color of inactive active radio option when hovering.
 
   # Dropdown Control (Not used in MacOS)
   dropdown.listBackground: *BG                                                  # Dropdown list background
@@ -175,6 +187,7 @@ colors:
   # Profile
   profileBadge.background:                                                      # Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.
   profileBadge.foreground:                                                      # Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.
+  profiles.sashBorder:                                                          # The color of the Profiles editor splitview sash border.
 
   # Side Bar
   sideBar.background: *BG                                                       # Side Bar background color
@@ -226,6 +239,9 @@ colors:
 
   tab.activeBackground: *BG                                                     # Active Tab background color
   tab.activeBorder:                                                             # A border drawn to the bottom of the active tab
+  tab.selectedBorderTop: *WARNING                                               # Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+  tab.selectedBackground: *BGDark                                               # Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+  tab.selectedForeground:                                                       # Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
   tab.activeModifiedBorder:                                                     # A border drawn to the bottom of the active tab
   tab.activeBorderTop: !alpha [*FG, 80]                                         # A border drawn to the top of the active tab
   tab.activeForeground: *FG                                                     # Active Tab foreground color in an active group
@@ -265,8 +281,10 @@ colors:
   editorMultiCursor.primary.background:                                         # The background color of the primary editor cursor when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
   editorMultiCursor.secondary.foreground:                                       # Color of secondary editor cursors when multiple cursors are present.
   editorMultiCursor.secondary.background:                                       # The background color of secondary editor cursors when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
+  editor.placeholder.foreground: *COMMENT                                       # Foreground color of the placeholder text in the editor.
 
   editor.foldBackground: !alpha [ *BGDark, 80 ]                                 # Background color for folded ranges
+  editor.foldPlaceholderForeground: *COMMENT                                    # Color of the collapsed text after the first line of a folded range.
   editor.inactiveSelectionBackground:                                           # Color of the selection in an inactive editor
   editor.selectionBackground: *BGMid                                            # Color of the editor selection
   editor.selectionForeground:                                                   # Color of the selected text for high contrast.
@@ -280,9 +298,11 @@ colors:
   editor.wordHighlightTextBackground:                                           # Background color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.
   editor.wordHighlightTextBorder:                                               # Border color of a textual occurrence for a symbol.
 
-  editor.findMatchBackground: !alpha [ *FG, 20 ]                                # Color of the current search match.
+  editor.findMatchBackground: !alpha [*INFO, 50]                                # Color of the current search match.
+  editor.findMatchForeground:                                                   # Text color of the current search match.
+  editor.findMatchHighlightForeground:                                          # Foreground color of the other search matches.
   editor.findMatchBorder:                                                       # Border color of the current search match.
-  editor.findMatchHighlightBackground: !alpha [ *FG, 40 ]                       # Color of the other search matches
+  editor.findMatchHighlightBackground: !alpha [*BGMid, 80]                      # Color of the other search matches
   editor.findMatchHighlightBorder:                                              # Border color of the other search matches.
   editor.findRangeHighlightBackground: !alpha [*BGDark, 80]                     # Color the range limiting the search
   editor.findRangeHighlightBorder:                                              # Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
@@ -293,8 +313,8 @@ colors:
   searchEditor.textInputBorder:                                                 # Search editor text input box border.
   editor.hoverHighlightBackground: !alpha [*FG, 20]                             # Highlight below the word for which a hover is shown
 
-  editor.lineHighlightBackground:                                               # Background color for the highlight of line at the cursor position
-  editor.lineHighlightBorder: *BGMid                                            # Background color for the border around the line at the cursor position
+  editor.lineHighlightBackground: *BGDark                                       # Background color for the highlight of line at the cursor position
+  editor.lineHighlightBorder: *BGDark                                           # Background color for the border around the line at the cursor position
   editorWatermark.foreground:                                                   # Foreground color for the labels in the editor watermark.
   editorUnicodeHighlight.border:                                                # Border color used to highlight unicode characters.
   editorUnicodeHighlight.background:                                            # Background color used to highlight unicode characters.
@@ -446,9 +466,9 @@ colors:
 
   # Inline Chat colors
   inlineChat.background:                                                        # Background color of the interactive editor widget.
+  inlineChat.foreground:                                                        # Foreground color of the interactive editor widget.
   inlineChat.border:                                                            # Border color of the interactive editor widget.
   inlineChat.shadow:                                                            # Shadow color of the interactive editor widget.
-  inlineChat.regionHighlight: !alpha [*BGDark, 50]                              # Background highlighting of the current interactive region. Must be transparent.
   inlineChatInput.border:                                                       # Border color of the interactive editor input.
   inlineChatInput.focusBorder:                                                  # Border color of the interactive editor input when focused.
   inlineChatInput.placeholderForeground:                                        # Foreground color of the interactive editor input placeholder.
@@ -726,6 +746,11 @@ colors:
   terminalOverviewRuler.findMatchForeground:                                    # Overview ruler marker color for find matches in the terminal.
   terminalStickyScroll.background:                                              # The background color of the sticky scroll overlay in the terminal.
   terminalStickyScrollHover.background:                                         # The background color of the sticky scroll overlay in the terminal when hovered.
+  terminalStickyScroll.border:                                                  # The border of the sticky scroll overlay in the terminal.
+  terminal.initialHintForeground:                                               # Foreground color of the terminal initial hint.
+  terminalOverviewRuler.border:                                                 # The overview ruler left-side border color.
+  terminalCommandGuide.foreground:                                              # The foreground color of the terminal command guide that appears to the left of a command and its output on hover.
+
 
   # Debug
   debugToolBar.background: *BGDark                                              # Debug toolbar background color
@@ -745,6 +770,7 @@ colors:
   debugTokenExpression.boolean:                                                 # Foreground color for booleans in debug views.
   debugTokenExpression.number:                                                  # Foreground color for numbers in debug views.
   debugTokenExpression.error:                                                   # Foreground color for expression errors in debug views.
+  debugTokenExpression.type:                                                    # Foreground color for token typesshown in the debug view.
 
 # Testing colors
 
@@ -802,6 +828,17 @@ colors:
   gitDecoration.stageModifiedResourceForeground:                                # Color for staged modifications git decorations. Used for file labels and the SCM viewlet.
   gitDecoration.stageDeletedResourceForeground:                                 # Color for staged deletions git decorations. Used for file labels and the SCM viewlet.
   gitDecoration.submoduleResourceForeground:                                    # Color for submodule resources.
+
+  # Source Control Graph Colors
+  scmGraph.historyItemGroupLocal:                                               # Local history item group color.
+  scmGraph.historyItemGroupRemote:                                              # Remote history item group color.
+  scmGraph.historyItemGroupBase:                                                # Base history item group color.
+  scmGraph.historyItemHoverLabelForeground:                                     # History item hover label foreground color.
+  scmGraph.foreground1:                                                         # Source control graph foreground color (1).
+  scmGraph.foreground2:                                                         # Source control graph foreground color (2).
+  scmGraph.foreground3:                                                         # Source control graph foreground color (3).
+  scmGraph.historyItemHoverAdditionsForeground:                                 # History item hover additions foreground color.
+  scmGraph.historyItemHoverDeletionsForeground:                                 # History item hover deletions foreground color.
 
   # Setting Editor
   settings.headerForeground: *FG                                                # The foreground color for a section header or active title
