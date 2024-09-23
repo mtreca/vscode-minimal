@@ -36,11 +36,19 @@
                 "label": "Minimal Theme - Black",
                 "uiTheme": "vs-dark",
                 "path": "./theme/minimal-black.json"
+            },
+            {
+                "label": "Minimal Theme - Paper",
+                "uiTheme": "vs",
+                "path": "./theme/minimal-paper.json"
             }
         ]
     },
     "devDependencies": {
+        "@eslint/js": "^9.11.0",
         "@vscode/vsce": "^3.1.0",
+        "eslint": "^9.11.0",
+        "globals": "^15.9.0",
         "js-yaml": "^4.1.0"
     }
 }

@@ -1,0 +1,32 @@
+$schema: vscode://schemas/color-theme
+name: Minimal
+semanticClass: theme.minimal
+semanticHighlighting: true
+palette:
+  - &BG        '#FFFCF0'
+  - &FG        '#100F0F'
+  - &BGDark    '#F2F0E5'
+  - &BGMid     '#E6E4D9'
+  - &BGLight   '#DAD8CE'
+  - &COMMENT   '#6F6E69'
+  - &PASS      '#00AE6B'
+  - &INFO      '#277DFF'
+  - &WARNING   '#FFC200'
+  - &ERROR     '#F2283C'
+  - &COLOR0    '#000000'
+  - &COLOR1    '#F2283C'
+  - &COLOR2    '#00AE6B'
+  - &COLOR3    '#FFC200'
+  - &COLOR4    '#277DFF'
+  - &COLOR5    '#D72E82'
+  - &COLOR6    '#875AFB'
+  - &COLOR7    '#BFBFBF'
+  - &COLOR8    '#666666'
+  - &COLOR9    '#F2283C'
+  - &COLOR10   '#00AE6B'
+  - &COLOR11   '#FFC200'
+  - &COLOR12   '#277DFF'
+  - &COLOR13   '#D72E82'
+  - &COLOR14   '#875AFB'
+  - &COLOR15   '#FFFFFF'
+  - &DEBUG     '#FF69B4'

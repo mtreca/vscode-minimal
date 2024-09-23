@@ -1,34 +1,31 @@
-const { readFile } = require("fs").promises;
-const { join } = require("path");
-const { Type, DEFAULT_SCHEMA, load } = require("js-yaml");
+const fs = require("fs");
+const path = require("path");
+const yaml = require("js-yaml");
 
-async function getThemeMapping() {
+const THEME_DIR = path.join(__dirname, "..", "colors");
 
-    const withAlphaType = new Type("!alpha", {
+async function getTheme(themeName, removeNulls = true) {
+    const withAlphaType = new yaml.Type("!alpha", {
         kind: "sequence",
         construct: ([hexRGB, alpha]) => hexRGB + alpha,
         represent: ([hexRGB, alpha]) => hexRGB + alpha,
     });
 
-    const schema = DEFAULT_SCHEMA.extend([withAlphaType]);
+    const schema = yaml.DEFAULT_SCHEMA.extend([withAlphaType]);
+    const themeFile = await fs.promises.readFile(`${THEME_DIR}/${themeName}.yml`, "utf-8");
+    const mappingFile = await fs.promises.readFile(`${THEME_DIR}/mapping.yml`, "utf-8");
 
-    mappingFile = join(__dirname, "..", "colors", "mapping.yml")
-    mapping = await readFile(mappingFile, "utf-8");
-    const base = load(mapping, { schema });
+    const theme = yaml.load(`${themeFile}\n${mappingFile}`, { schema });
 
-    return base
-}
-
-async function generateJSONTheme() {
-    const base = await getThemeMapping();
-
-    for (const key of Object.keys(base.colors)) {
-        if (!base.colors[key]) {
-            delete base.colors[key];
+    if (removeNulls) {
+        for (const key of Object.keys(theme.colors)) {
+            if (!theme.colors[key]) {
+                delete theme.colors[key];
+            }
         }
     }
 
-    return { base };
+    return theme;
 }
 
-module.exports = { getThemeMapping, generateJSONTheme };
+module.exports = { getTheme };

@@ -1,22 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const generate = require('./generate');
+const fs = require("fs");
+const path = require("path");
+const generate = require("./generate");
 
-const THEME_DIR = path.join(__dirname, '..', 'theme');
+const OUTPUT_DIR = path.join(__dirname, "..", "theme");
 
-if (!fs.existsSync(THEME_DIR)) {
-    fs.mkdirSync(THEME_DIR);
+if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
 }
 
 module.exports = async () => {
-    const { base } = await generate.generateJSONTheme();
+    const themes = ["black", "paper"];
 
-    return Promise.all([
-        fs.promises.writeFile(
-            path.join(THEME_DIR, 'minimal-black.json'),
-            JSON.stringify(base, null, 4)
-        ),
-    ]);
+    return Promise.all(
+        themes.map(async (themeName) => {
+            const themeFile = await generate.getTheme(themeName, true);
+            fs.promises.writeFile(`${OUTPUT_DIR}/minimal-${themeName}.json`, JSON.stringify(themeFile, null, 4));
+        })
+    );
 };
 
 if (require.main === module) {
