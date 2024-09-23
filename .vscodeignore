@@ -1,5 +1,5 @@
-*.js
 .gitignore
 .vscode/
-colors/
+src/
 scripts/
+node_modules/
