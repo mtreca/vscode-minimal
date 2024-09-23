@@ -80,7 +80,7 @@ colors:
   inputValidation.errorBorder: *ERROR                                           # Input validation border color for error severity
   inputValidation.errorForeground:                                              # Input validation foreground color for error severity
   inputValidation.infoBackground:                                               # Input validation background color for information severity
-  inputValidation.infoBorder: *WARNING                                          # Input validation border color for information severity
+  inputValidation.infoBorder: *INFO                                             # Input validation border color for information severity
   inputValidation.infoForeground:                                               # Input validation foreground color for information severity
   inputValidation.warningBackground:                                            # Input validation background color for information warning
   inputValidation.warningBorder: *WARNING                                       # Input validation border color for warning severity
