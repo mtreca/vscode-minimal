@@ -292,14 +292,12 @@ colors:
   editor.symbolHighlightBorder:                                                 # Background color of the border around highlighted symbols.
 
   editor.linkedEditingBackground:                                               # Background color when the editor is in linked editing mode.
-  editorIndentGuide.activeBackground: !alpha [ *FG, 45]                         # Color of the active indentation guide
   editorIndentGuide.activeBackground1: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (1).
   editorIndentGuide.activeBackground2: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (2).
   editorIndentGuide.activeBackground3: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (3).
   editorIndentGuide.activeBackground4: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (4).
   editorIndentGuide.activeBackground5: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (5).
   editorIndentGuide.activeBackground6: !alpha [ *FG, 45]                        # Color of the active editor indentation guides (6).
-  editorIndentGuide.background: !alpha [ *FG, 45]                               # Color of the editor indentation guides
   editorIndentGuide.background1: !alpha [ *FG, 45]                              # Color of the editor indentation guides (1).
   editorIndentGuide.background2: !alpha [ *FG, 45]                              # Color of the editor indentation guides (2).
   editorIndentGuide.background3: !alpha [ *FG, 45]                              # Color of the editor indentation guides (3).
@@ -390,7 +388,7 @@ colors:
   editorGutter.commentGlyphForeground:                                          # Editor gutter decoration color for commenting glyphs.
   editorGutter.commentRangeForeground:                                          # Editor gutter decoration color for commenting ranges.
   editorGutter.commentUnresolvedGlyphForeground:                                # Editor gutter decoration color for commenting glyphs for unresolved comment threads.
-  editorGutter.deletedBackground:  !alpha [ *ERROR,    80 ]                       # Editor gutter background color for lines that are deleted
+  editorGutter.deletedBackground:  !alpha [ *ERROR,    80 ]                     # Editor gutter background color for lines that are deleted
   editorGutter.foldingControlForeground:                                        # Color of the folding control in the editor gutter.
   editorGutter.modifiedBackground: !alpha [ *INFO, 80 ]                         # Editor gutter background color for lines that are modified
 
@@ -406,7 +404,7 @@ colors:
   diffEditor.removedTextBackground: !alpha [ *ERROR, 50 ]                       # Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.
   diffEditor.removedTextBorder:                                                 # Outline color for text that got removed.
   diffEditor.border:                                                            # Border color between the two text editors.
-  diffEditor.diagonalFill:                                                      # Color of the diff editor diagonal fill. The diagonal fill is used in side-by-side diff views.
+  diffEditor.diagonalFill: *BGDark                                              # Color of the diff editor diagonal fill. The diagonal fill is used in side-by-side diff views.
   diffEditor.insertedLineBackground:                                            # Background color for lines that got inserted. The color must not be opaque so as not to hide underlying decorations.
   diffEditor.removedLineBackground:                                             # Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.
   diffEditorGutter.insertedLineBackground:                                      # Background color for the margin where lines got inserted.
@@ -534,10 +532,10 @@ colors:
   mergeEditor.conflict.input2.background:                                       # The background color of decorations in input 2.
 
   # Panel Colors
-  panel.border: *BGMid                                                          # Panel border color on the top separating to the editor
-  panel.dropBorder: *BGMid                                                      # Panel border color on the top separating to the editor
+  panel.border: *BGDark                                                         # Panel border color on the top separating to the editor
+  panel.dropBorder: *BGDark                                                     # Panel border color on the top separating to the editor
   panel.background: *BG                                                         # Panel background color on the top separating to the editor
-  panelTitle.activeBorder: *BGMid                                               # Border color for the active panel title
+  panelTitle.activeBorder: *BGDark                                              # Border color for the active panel title
   panelTitle.activeForeground: *FG                                              # Title color for the active panel
   panelTitle.inactiveForeground: *COMMENT                                       # Title color for the inactive panel
   panelInput.border:                                                            # Input box border for inputs in the panel.

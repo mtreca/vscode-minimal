@@ -37,7 +37,7 @@ async function scrapeThemeAvailableKeys() {
 (async () => {
     const possibleKeys = await scrapeThemeAvailableKeys();
 
-    const mapping = await generate.getTheme("black", false);
+    const mapping = await generate.getTheme("minimal-black", false);
     const themeKeys = Object.keys(mapping.colors);
 
     for (const key of themeKeys.filter((x) => !possibleKeys.includes(x))) {

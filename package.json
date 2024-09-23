@@ -1,6 +1,6 @@
 {
     "name": "minimal-theme",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "displayName": "Minimal VSCode Theme",
     "description": "A minimal VSCode theme.",
     "publisher": "maximetreca",
@@ -38,9 +38,9 @@
                 "path": "./theme/minimal-black.json"
             },
             {
-                "label": "Minimal Theme - Paper",
-                "uiTheme": "vs",
-                "path": "./theme/minimal-paper.json"
+                "label": "Minimal Theme - Sourcerer",
+                "uiTheme": "vs-dark",
+                "path": "./theme/sourcerer.json"
             }
         ]
     },

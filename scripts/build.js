@@ -9,12 +9,12 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 }
 
 module.exports = async () => {
-    const themes = ["black", "paper"];
+    const themes = ["minimal-black", "flexoki-light", "flexoki-dark", "sourcerer"];
 
     return Promise.all(
         themes.map(async (themeName) => {
             const themeFile = await generate.getTheme(themeName, true);
-            fs.promises.writeFile(`${OUTPUT_DIR}/minimal-${themeName}.json`, JSON.stringify(themeFile, null, 4));
+            fs.promises.writeFile(`${OUTPUT_DIR}/${themeName}.json`, JSON.stringify(themeFile, null, 4));
         })
     );
 };
