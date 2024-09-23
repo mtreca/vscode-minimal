@@ -5,14 +5,20 @@ semanticHighlighting: true
 palette:
   - &BG        '#000000'
   - &FG        '#FFFFFF'
-  - &BGDark    '#222222'
-  - &BGMid     '#555555'
-  - &BGLight   '#888888'
+
+  - &BG1       '#111111'
+  - &BG2       '#222222'
+
+  - &SELECT    '#444444'
   - &COMMENT   '#999999'
+
+  - &BGDark    '#222222'
+  - &BGLight   '#888888'
   - &PASS      '#00AE6B'
   - &INFO      '#277DFF'
-  - &WARNING   '#FFC200'
+  - &WARN      '#FFC200'
   - &ERROR     '#F2283C'
+
   - &COLOR0    '#000000'
   - &COLOR1    '#F2283C'
   - &COLOR2    '#00AE6B'
@@ -29,4 +35,5 @@ palette:
   - &COLOR13   '#D72E82'
   - &COLOR14   '#875AFB'
   - &COLOR15   '#FFFFFF'
+
   - &DEBUG     '#FF69B4'

@@ -9,7 +9,8 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 }
 
 module.exports = async () => {
-    const themes = ["minimal-black", "sourcerer"];
+    // const themes = ["minimal-black", "sourcerer"];
+    const themes = ["minimal-black"];
 
     return Promise.all(
         themes.map(async (themeName) => {
