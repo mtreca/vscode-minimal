@@ -1,34 +1,20 @@
 {
     "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch Program",
-            "program": "${file}",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
-        },
-        {
-            "name": "Launch Theme",
-            "type": "extensionHost",
-            "request": "launch",
-            "runtimeExecutable": "${execPath}",
-            "preLaunchTask": "npm: build",
-            "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}",
-                "--disable-extensions",
-                "${file}"
-            ]
-        },
-        {
-            "name": "Launch Theme (with extensions)",
-            "type": "extensionHost",
-            "request": "launch",
-            "runtimeExecutable": "${execPath}",
-            "preLaunchTask": "npm: build",
-            "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${file}"]
-        }
-    ]
+  "configurations": [
+    {
+      "name": "Run Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "preLaunchTask": "npm: build"
+    },
+    {
+      "name": "Run Extension Without Build",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+    }
+  ]
 }

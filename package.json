@@ -7,7 +7,7 @@
     "repository": {},
     "license": "MIT",
     "scripts": {
-        "build": "node ./scripts/build.js",
+        "build": "node ./src/index.js",
         "lint": "node ./scripts/lint.js",
         "package": "vsce package -o ./minimal-theme.vsix",
         "vscode:prepublish": "npm run build",
@@ -33,14 +33,9 @@
     "contributes": {
         "themes": [
             {
-                "label": "Minimal Theme - Black",
+                "label": "Minimal Theme - Good",
                 "uiTheme": "vs-dark",
-                "path": "./theme/minimal-black.json"
-            },
-            {
-                "label": "Minimal Theme - Sourcerer",
-                "uiTheme": "vs-dark",
-                "path": "./theme/sourcerer.json"
+                "path": "./themes/dark.json"
             }
         ]
     },

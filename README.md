@@ -11,3 +11,5 @@
 ## Improvements
 
 - [ ] TODO Make modified tab titles nicer
+
+> Nice lil quote

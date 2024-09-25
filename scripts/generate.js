@@ -4,7 +4,8 @@ const yaml = require("js-yaml");
 
 const THEME_DIR = path.join(__dirname, "..", "colors");
 
-async function getTheme(themeName, removeNulls = true) {
+// TODO: Definitely port the linting thing to json
+async function getTheme(themeName) {
     const withAlphaType = new yaml.Type("!alpha", {
         kind: "sequence",
         construct: ([hexRGB, alpha]) => hexRGB + alpha,
@@ -17,11 +18,9 @@ async function getTheme(themeName, removeNulls = true) {
 
     const theme = yaml.load(`${themeFile}\n${mappingFile}`, { schema });
 
-    if (removeNulls) {
-        for (const key of Object.keys(theme.colors)) {
-            if (!theme.colors[key]) {
-                delete theme.colors[key];
-            }
+    for (const key of Object.keys(theme.colors)) {
+        if (!theme.colors[key]) {
+            theme.colors[key] = "default";
         }
     }
 

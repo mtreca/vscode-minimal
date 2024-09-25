@@ -3,14 +3,17 @@ name: Minimal
 semanticClass: theme.minimal
 semanticHighlighting: true
 palette:
-  - &BG        '#000000'
-  - &FG        '#FFFFFF'
 
+  - &BG        '#000000'
   - &BG1       '#111111'
   - &BG2       '#222222'
 
+  - &FG        '#FFFFFF'
+
+
   - &SELECT    '#444444'
   - &COMMENT   '#999999'
+  - &BORDER    '#666666'
 
   - &BGDark    '#222222'
   - &BGLight   '#888888'
