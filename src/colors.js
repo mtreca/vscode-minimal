@@ -26,20 +26,26 @@ const alpha = (color, alpha) => {
 
 const colors = {
     hidden: "#00000000",
-    element: {
-        button: {
-            background: "#222222",
-        },
-    },
-    state: {
-        info: "#277dff",
+    widget: {
+        border: "#222222",
+        button: "#1b1b1b",
+        hover: "#333333",
+        input: "#1b1b1b",
+        shadow: "#00000000",
     },
     foreground: {
         default: "#ffffff",
+        muted: "#cccccc",
+        link: "#277dff",
     },
     background: {
         default: "#000000",
-    }
+        selection: "#ffffff30",
+    },
+    state: {
+        info: "#277dff",
+        error: "#f2283c",
+    },
 };
 
 function getColors(theme) {

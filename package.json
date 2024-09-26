@@ -1,6 +1,6 @@
 {
     "name": "minimal-theme",
-    "version": "0.1.10",
+    "version": "0.0.3",
     "displayName": "Minimal VSCode Theme",
     "description": "A minimal VSCode theme.",
     "publisher": "maximetreca",
