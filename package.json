@@ -7,7 +7,7 @@
     "repository": {},
     "license": "MIT",
     "scripts": {
-        "build": "node ./scripts/build.js",
+        "build": "node ./src/index.js",
         "lint": "node ./scripts/lint.js",
         "package": "vsce package -o ./minimal-theme.vsix",
         "vscode:prepublish": "npm run build",
@@ -35,12 +35,16 @@
             {
                 "label": "Minimal Theme - Black",
                 "uiTheme": "vs-dark",
-                "path": "./theme/minimal-black.json"
+                "path": "./themes/dark.json"
             }
         ]
     },
     "devDependencies": {
         "@vscode/vsce": "^3.1.0",
         "js-yaml": "^4.1.0"
+    },
+    "dependencies": {
+        "chroma-js": "^3.1.1",
+        "deptree": "^1.0.0"
     }
 }
