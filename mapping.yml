@@ -3,13 +3,6 @@ colors:
   contrastBorder:                                                                                  #!alpha [*BG, 00]
   contrastActiveBorder:                                                                            #!alpha [*BG, 00]
 
-  focusBorder:                                                                                     !alpha [*FG, "00"]
-  foreground:                                                                                      #*FG
-  widget.shadow:                                                                                   #*BG
-  widget.border:                                                                                   #*BG
-  selection.background:                                                                            #*SELECT
-  descriptionForeground:                                                                           #*FG
-  errorForeground:                                                                                 #*ERROR
   disabledForeground:                                                                              #*BGDark
   icon.foreground:                                                                                 #*FG
   sash.hoverBorder:

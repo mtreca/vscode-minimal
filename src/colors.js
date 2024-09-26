@@ -1,50 +1,47 @@
-// const chroma = require("chroma-js");
+const chroma = require("chroma-js");
 
 const alpha = (color, alpha) => {
-    return `${color}${alpha}`;
-    // return chroma(color).alpha(alpha).hex()
+    return chroma(color).alpha(alpha).hex();
 };
 
-// Convert to hex
-// VS Code doesn't support other formats like hsl, rgba etc.
-
-// function changeColorToHexAlphas(obj) {
-//   if (typeof obj === 'object') {
-//     for (var keys in obj) {
-//       if (typeof obj[keys] === 'object') {
-//         changeColorToHexAlphas(obj[keys])
-//       } else {
-//         let keyValue = obj[keys]
-//         if(chroma.valid(keyValue)){
-//           obj[keys] = chroma(keyValue).hex();
-//         }
-//       }
-//     }
-//   }
-//   return obj;
-// }
-
 const colors = {
+    // TODO Regroup all colors to the top level for now, much easier to deal with
     hidden: "#00000000",
-    widget: {
+    state: {
+        pass: "#00ae6b",
+        info: "#277dff",
+        error: "#f2283c",
+        warning: "#ffc200",
+    },
+    interface: {
         border: "#222222",
         button: "#1b1b1b",
-        hover: "#333333",
+        background: "#000000",
+        foreground: "#ffffff",
+        hover: "#222222",
         input: "#1b1b1b",
+        link: "#277dff",
+        muted: "#aaaaaa",
+        shadow: "#00000000",
+    },
+    editor: {
+        comment: "#999999",
+        selection: alpha("#ffffff", 0.3),
+        match: alpha("#277dff", 0.6),
+        range: alpha("#ffc200", 0.3),
+    },
+    widget: {
+        border: "#222222",
         shadow: "#00000000",
     },
     foreground: {
         default: "#ffffff",
-        muted: "#cccccc",
-        link: "#277dff",
+        comment: "#999999",
     },
     background: {
         default: "#000000",
-        selection: "#ffffff30",
-    },
-    state: {
-        info: "#277dff",
-        error: "#f2283c",
+        selection: "#ffffff40",
+        range: "#444444",
     },
 };
 
@@ -53,5 +50,6 @@ function getColors(theme) {
 }
 
 module.exports = {
+    alpha,
     getColors,
 };

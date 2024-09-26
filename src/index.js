@@ -6,6 +6,8 @@ const darkTheme = getTheme({
     name: "Minimal - Dark",
 });
 
+
+
 fs.mkdir("./themes", { recursive: true })
     .then(() =>
         Promise.all([

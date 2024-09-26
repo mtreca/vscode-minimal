@@ -1,6 +1,4 @@
-node_modules/
-/theme/
-/tests/
-bin/
 *.vsix
 .DS_Store
+themes/**
+node_modules/**
