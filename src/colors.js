@@ -5,44 +5,44 @@ const alpha = (color, alpha) => {
 };
 
 const colors = {
-    // TODO Regroup all colors to the top level for now, much easier to deal with
+    // TODO: Test this one out
+    default: "default",
+
+    // Interface - Background
+    background: "#000000",
+    button: "#1b1b1b",
+    input: "#1b1b1b",
+    hover: "#222222",
+
+    // Interface - Foreground
+    foreground: "#ffffff",
+    muted: "#aaaaaa",
+    disabled: "#666666",
+    comment: "#999999",
+
+    // Interface - Others
+    border: "#222222",
     hidden: "#00000000",
-    state: {
-        pass: "#00ae6b",
-        info: "#277dff",
-        error: "#f2283c",
-        warning: "#ffc200",
-    },
-    interface: {
-        border: "#222222",
-        button: "#1b1b1b",
-        background: "#000000",
-        foreground: "#ffffff",
-        hover: "#222222",
-        input: "#1b1b1b",
-        link: "#277dff",
-        muted: "#aaaaaa",
-        shadow: "#00000000",
-    },
-    editor: {
-        comment: "#999999",
-        selection: alpha("#ffffff", 0.3),
-        match: alpha("#277dff", 0.6),
-        range: alpha("#ffc200", 0.3),
-    },
-    widget: {
-        border: "#222222",
-        shadow: "#00000000",
-    },
-    foreground: {
-        default: "#ffffff",
-        comment: "#999999",
-    },
-    background: {
-        default: "#000000",
-        selection: "#ffffff40",
-        range: "#444444",
-    },
+
+    // Editor - Search
+    match: alpha("#277dff", 0.6),
+    selection: alpha("#ffffff", 0.3),
+
+    // State
+    pass: "#00ae6b",
+    info: "#277dff",
+    error: "#f2283c",
+    conflict: "#d72e82",
+    warning: "#ffc200",
+
+    // Terminal
+    blue: "#277dff",
+    cyan: "#875afb",
+    green: "#00ae6b",
+    magenta: "#d72e82",
+    red: "#f2283c",
+    white: "#ffffff",
+    yellow: "#ffc200",
 };
 
 function getColors(theme) {
