@@ -36,11 +36,13 @@ async function scrapeThemeAvailableKeys() {
     const documentationKeys = await scrapeThemeAvailableKeys();
     const themeKeys = Object.keys(getTheme({theme: "lint", name: "Linting Test"}).colors);
 
+    console.log("Unsupported keys:");
     for (const key of themeKeys.filter((x) => !documentationKeys.includes(x))) {
-        console.warn(`Theme contains unsupported key "${key}"`);
+        console.warn(`"${key}"`);
     }
 
+    console.log("Missing keys:")
     for (const key of documentationKeys.filter((x) => !themeKeys.includes(x))) {
-        console.warn(`Theme is missing key "${key}"`);
+        console.warn(`"${key}"`);
     }
 })().catch(console.error);

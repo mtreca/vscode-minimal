@@ -337,16 +337,91 @@ function getTheme({ theme, name }) {
             "gitDecoration.deletedResourceForeground": color.error,
             "gitDecoration.ignoredResourceForeground": color.comment,
             "gitDecoration.modifiedResourceForeground": color.warning,
+            "gitDecoration.renamedResourceForeground": color.warning,
             "gitDecoration.stageDeletedResourceForeground": color.error,
             "gitDecoration.stageModifiedResourceForeground": color.warning,
             "gitDecoration.submoduleResourceForeground": color.info,
             "gitDecoration.untrackedResourceForeground": color.pass,
+
+            "scmGraph.historyItemHoverLabelForeground": color.foreground,
+            "scmGraph.foreground1": color.foreground,
+            "scmGraph.foreground2": color.pass,
+            "scmGraph.foreground3": color.info,
+            "scmGraph.foreground4": color.warning,
+            "scmGraph.foreground5": color.error,
+            "scmGraph.historyItemHoverAdditionsForeground": color.pass,
+            "scmGraph.historyItemHoverDeletionsForeground": color.error,
+            "scmGraph.historyItemRefColor": color.foreground,
+            "scmGraph.historyItemRemoteRefColor": color.button,
+            "scmGraph.historyItemBaseRefColor": color.error,
+            "scmGraph.historyItemHoverDefaultLabelForeground": color.foreground,
+            "scmGraph.historyItemHoverDefaultLabelBackground": color.button,
 
             "breadcrumb.background": color.background,
             "breadcrumb.foreground": color.muted,
             "breadcrumb.focusForeground": color.foreground,
             "breadcrumb.activeSelectionForeground": color.foreground,
             "breadcrumbPicker.background": color.background,
+
+            "editor.snippetTabstopHighlightBackground": color.hidden,
+            "editor.snippetTabstopHighlightBorder": color.hidden,
+            "editor.snippetFinalTabstopHighlightBackground": color.hidden,
+            "editor.snippetFinalTabstopHighlightBorder": color.foreground,
+
+            "symbolIcon.arrayForeground": color.foreground,
+            "symbolIcon.booleanForeground": color.foreground,
+            "symbolIcon.classForeground": color.foreground,
+            "symbolIcon.colorForeground": color.foreground,
+            "symbolIcon.constantForeground": color.foreground,
+            "symbolIcon.constructorForeground": color.foreground,
+            "symbolIcon.enumeratorForeground": color.foreground,
+            "symbolIcon.enumeratorMemberForeground": color.foreground,
+            "symbolIcon.eventForeground": color.foreground,
+            "symbolIcon.fieldForeground": color.foreground,
+            "symbolIcon.fileForeground": color.foreground,
+            "symbolIcon.folderForeground": color.foreground,
+            "symbolIcon.functionForeground": color.foreground,
+            "symbolIcon.interfaceForeground": color.foreground,
+            "symbolIcon.keyForeground": color.foreground,
+            "symbolIcon.keywordForeground": color.foreground,
+            "symbolIcon.methodForeground": color.foreground,
+            "symbolIcon.moduleForeground": color.foreground,
+            "symbolIcon.namespaceForeground": color.foreground,
+            "symbolIcon.nullForeground": color.foreground,
+            "symbolIcon.numberForeground": color.foreground,
+            "symbolIcon.objectForeground": color.foreground,
+            "symbolIcon.operatorForeground": color.foreground,
+            "symbolIcon.packageForeground": color.foreground,
+            "symbolIcon.propertyForeground": color.foreground,
+            "symbolIcon.referenceForeground": color.foreground,
+            "symbolIcon.snippetForeground": color.foreground,
+            "symbolIcon.stringForeground": color.foreground,
+            "symbolIcon.structForeground": color.foreground,
+            "symbolIcon.textForeground": color.foreground,
+            "symbolIcon.typeParameterForeground": color.foreground,
+            "symbolIcon.unitForeground": color.foreground,
+            "symbolIcon.variableForeground": color.foreground,
+
+            "debugIcon.breakpointForeground": color.error,
+            "debugIcon.breakpointDisabledForeground": color.comment,
+            "debugIcon.breakpointUnverifiedForeground": color.warning,
+            "debugIcon.breakpointCurrentStackframeForeground": color.error,
+            "debugIcon.breakpointStackframeForeground": color.error,
+            "debugIcon.startForeground": color.pass,
+            "debugIcon.pauseForeground": color.info,
+            "debugIcon.stopForeground": color.error,
+            "debugIcon.disconnectForeground": color.warning,
+            "debugIcon.restartForeground": color.pass,
+            "debugIcon.stepOverForeground": color.foreground,
+            "debugIcon.stepIntoForeground": color.foreground,
+            "debugIcon.stepOutForeground": color.foreground,
+            "debugIcon.continueForeground": color.pass,
+            "debugIcon.stepBackForeground": color.foreground,
+            "debugConsole.infoForeground": color.info,
+            "debugConsole.warningForeground": color.warning,
+            "debugConsole.errorForeground": color.error,
+            "debugConsole.sourceForeground": color.foreground,
+            "debugConsoleInputIcon.foreground": color.foreground,
 
             "notebook.editorBackground": color.background,
             "notebook.cellBorderColor": color.hidden,
@@ -370,6 +445,17 @@ function getTheme({ theme, name }) {
             "notebookScrollbarSlider.hoverBackground": alpha(color.foreground, 0.4),
             "notebookStatusErrorIcon.foreground": color.error,
             "notebookStatusSuccessIcon.foreground": color.green,
+            "notebookStatusRunningIcon.foreground": color.info,
+            "notebookEditorOverviewRuler.runningCellForeground": color.comment,
+
+            "charts.foreground": color.foreground,
+            "charts.lines": color.foreground,
+            "charts.red": color.red,
+            "charts.blue": color.blue,
+            "charts.yellow": color.yellow,
+            "charts.orange": color.cyan,
+            "charts.green": color.green,
+            "charts.purple": color.magenta,
 
         },
         semanticHighlighting: true,
@@ -468,25 +554,5 @@ function getTheme({ theme, name }) {
         ],
     };
 }
-
-// Convert to hex
-// VS Code doesn't support other formats like hsl, rgba etc.
-
-// function changeColorToHexAlphas(obj) {
-//   if (typeof obj === 'object') {
-//     for (var keys in obj) {
-//       if (typeof obj[keys] === 'object') {
-//         changeColorToHexAlphas(obj[keys])
-//       } else {
-//         let keyValue = obj[keys]
-//         if(chroma.valid(keyValue)){
-//           obj[keys] = chroma(keyValue).hex();
-//         }
-//       }
-//     }
-//   }
-//   return obj;
-// }
-
 
 module.exports = getTheme;
