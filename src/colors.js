@@ -38,7 +38,7 @@ const sorceryColors = {
     border: "#222222",
     hidden: "#00000000",
     match: alpha("#5f87af", 0.6),
-    selection: alpha("#dddddd", 0.3),
+    selection: alpha("#5f8787", 0.3),
     red: "#af5f5f",
     green: "#5f8787",
     yellow: "#87875f",

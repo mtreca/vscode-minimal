@@ -7,6 +7,9 @@ function getTheme({ theme, name }) {
         colors: {
             focusBorder: color.hidden,
             foreground: color.foreground,
+            contrastActiveBorder: color.hidden,
+            contrastBorder: color.hidden,
+            disabledForeground: color.disabled,
             "widget.shadow": color.hidden,
             "widget.border": color.border,
             "selection.background": color.selection,
@@ -14,6 +17,15 @@ function getTheme({ theme, name }) {
             errorForeground: color.red,
             "icon.foreground": color.foreground,
 
+            "window.activeBorder": color.hidden,
+            "window.inactiveBorder": color.hidden,
+
+            "textBlockQuote.background": color.button,
+            "textBlockQuote.border": color.hidden,
+            "textCodeBlock.background": color.button,
+            "textPreformat.foreground": color.foreground,
+            "textPreformat.background": color.button,
+            "textSeparator.foreground": color.foreground,
             "textLink.foreground": color.blue,
             "textLink.activeForeground": color.blue,
 
@@ -107,6 +119,12 @@ function getTheme({ theme, name }) {
             "minimap.errorHighlight": color.red,
             "minimap.warningHighlight": color.yellow,
             "minimap.background": color.background,
+            "minimap.selectionOccurrenceHighlight": color.match,
+            "minimap.foregroundOpacity": alpha(color.background, 0.8),
+            "minimap.infoHighlight": color.blue,
+            "minimapSlider.background": alpha(color.foreground, 0.15),
+            "minimapSlider.hoverBackground": alpha(color.foreground, 0.4),
+            "minimapSlider.activeBackground": alpha(color.foreground, 0.4),
 
             "editorGroup.border": color.border,
             "editorGroup.emptyBackground": color.background,
@@ -124,6 +142,25 @@ function getTheme({ theme, name }) {
             "tab.hoverBackground": color.background,
             "tab.hoverForeground": color.muted,
             "tab.hoverBorder": color.hidden,
+
+            "tab.unfocusedActiveBackground": color.background,
+            "tab.selectedBorderTop": color.green,
+            "tab.selectedBackground": color.background,
+            "tab.selectedForeground": color.muted,
+            "tab.dragAndDropBorder": color.hidden,
+            "tab.unfocusedActiveBorder": color.hidden,
+            "tab.unfocusedActiveBorderTop": color.disabled,
+            "tab.lastPinnedBorder": color.hidden,
+            "tab.unfocusedInactiveBackground": color.background,
+            "tab.unfocusedActiveForeground": color.foreground,
+            "tab.unfocusedInactiveForeground": color.muted,
+            "tab.unfocusedHoverBackground": color.background,
+            "tab.unfocusedHoverForeground": color.muted,
+            "tab.unfocusedHoverBorder": color.hidden,
+            "tab.activeModifiedBorder": color.hidden,
+            "tab.inactiveModifiedBorder": color.hidden,
+            "tab.unfocusedActiveModifiedBorder": color.hidden,
+            "tab.unfocusedInactiveModifiedBorder": color.hidden,
 
             "editor.background": color.background,
             "editor.foreground": color.foreground,
@@ -205,9 +242,24 @@ function getTheme({ theme, name }) {
             "editorGutter.foldingControlForeground": color.comment,
             "editorGutter.modifiedBackground": color.blue,
 
-            "diffEditor.insertedTextBackground": alpha(color.green, 0.33),
-            "diffEditor.removedTextBackground": alpha(color.red, 0.33),
+            "diffEditor.insertedTextBackground": alpha(color.green, 0.25),
+            "diffEditor.removedTextBackground": alpha(color.red, 0.25),
+            "diffEditor.insertedLineBackground": alpha(color.green, 0.25),
+            "diffEditor.removedLineBackground": alpha(color.red, 0.25),
             "diffEditor.border": color.border,
+            "diffEditor.insertedTextBorder": color.hidden,
+            "diffEditor.removedTextBorder": color.hidden,
+            "diffEditor.unchangedRegionBackground": color.hidden,
+            "diffEditor.unchangedRegionForeground": color.hidden,
+            "diffEditor.unchangedRegionShadow": color.hidden,
+            "diffEditor.unchangedCodeBackground": color.hidden,
+            "diffEditor.diagonalFill": color.hover,
+            "diffEditorGutter.insertedLineBackground": color.hidden,
+            "diffEditorGutter.removedLineBackground": color.hidden,
+            "diffEditorOverview.insertedForeground": alpha(color.green, 0.35),
+            "diffEditorOverview.removedForeground": alpha(color.red, 0.35),
+            "diffEditor.move.border": color.border,
+            "diffEditor.moveActive.border": color.border,
 
             "editorWidget.foreground": color.foreground,
             "editorWidget.background": color.background,
@@ -342,18 +394,19 @@ function getTheme({ theme, name }) {
             "gitDecoration.stageModifiedResourceForeground": color.yellow,
             "gitDecoration.submoduleResourceForeground": color.blue,
             "gitDecoration.untrackedResourceForeground": color.green,
-
+            
+            // TODO: These colors are still messy, fix once upstream fixes these keys.
             "scmGraph.historyItemHoverLabelForeground": color.foreground,
-            "scmGraph.foreground1": color.foreground,
+            "scmGraph.foreground1": color.magenta,
             "scmGraph.foreground2": color.green,
             "scmGraph.foreground3": color.blue,
             "scmGraph.foreground4": color.yellow,
             "scmGraph.foreground5": color.red,
             "scmGraph.historyItemHoverAdditionsForeground": color.green,
             "scmGraph.historyItemHoverDeletionsForeground": color.red,
-            "scmGraph.historyItemRefColor": color.foreground,
-            "scmGraph.historyItemRemoteRefColor": color.button,
-            "scmGraph.historyItemBaseRefColor": color.red,
+            "scmGraph.historyItemRefColor": color.red,
+            "scmGraph.historyItemRemoteRefColor": color.blue,
+            "scmGraph.historyItemBaseRefColor": color.green,
             "scmGraph.historyItemHoverDefaultLabelForeground": color.foreground,
             "scmGraph.historyItemHoverDefaultLabelBackground": color.button,
 
@@ -456,10 +509,9 @@ function getTheme({ theme, name }) {
             "charts.orange": color.cyan,
             "charts.green": color.green,
             "charts.purple": color.magenta,
-
         },
         semanticHighlighting: true,
-        // TODO: Finish second pass
+        // TODO: Finish these
         semanticTokenColors: {
             enumMember: {
                 foreground: color.foreground,

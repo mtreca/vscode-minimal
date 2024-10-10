@@ -34,7 +34,7 @@ async function scrapeThemeAvailableKeys() {
 (async () => {
 
     const documentationKeys = await scrapeThemeAvailableKeys();
-    const themeKeys = Object.keys(getTheme({theme: "lint", name: "Linting Test"}).colors);
+    const themeKeys = Object.keys(getTheme({theme: "dark", name: "Does not matter"}).colors);
 
     console.log("Unsupported keys:");
     for (const key of themeKeys.filter((x) => !documentationKeys.includes(x))) {
